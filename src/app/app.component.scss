@@ -1,0 +1,32 @@
+.wrapper {
+    height: 100%;
+    width: 100%;
+    .background {
+      height: 100%;
+      width: 100%;
+  
+      mat-toolbar {
+        padding: 8px;
+        height: 20%;
+        border-bottom: goldenrod;
+        border-bottom-width: thick;
+        border-bottom-style: groove;
+        background: whitesmoke;
+        display: flex;
+        justify-content: center;
+  
+        nav-bar {
+          display: flex;
+          align-self: center;
+          width: 100%;
+        }
+      }
+  
+      footer {
+        position: fixed;
+        bottom: 8px;
+        width: 100%;
+      }
+    }
+  }
+  
