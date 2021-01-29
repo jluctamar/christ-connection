@@ -8,7 +8,7 @@ import { VerseService } from './services/verseService';
 import { SharedModule } from './shared/shared/shared.module';
 import { NavBarComponent } from './shared/shared/nav-bar/nav-bar.component';
 import { FooterComponent } from './shared/shared/footer/footer.component';
-import { PagesModule } from './pages/pages/pages.module';
+import { PagesModule } from './pages/pages.module';
 
 
 @NgModule({
