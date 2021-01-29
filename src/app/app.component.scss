@@ -1,3 +1,5 @@
+@import "../theme.scss";
+
 .wrapper {
     height: 100%;
     width: 100%;
@@ -11,7 +13,7 @@
         border-bottom: goldenrod;
         border-bottom-width: thick;
         border-bottom-style: groove;
-        background: whitesmoke;
+        background: $appBeige;
         display: flex;
         justify-content: center;
   

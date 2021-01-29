@@ -1,1 +1,18 @@
-<p>nav-bar works!</p>
+<div class="wrapper">
+    <mat-toolbar id="navBar">
+        <div class="nav-header">
+            <div class="main-header">
+                <img src="../../assets/FSBCWhitePlains.jpg" alt="FSBC-IMG" class="img-circle" (click)="goToHome()">
+                <div class="title">{{title}}</div>
+            </div>
+        </div>
+
+        <div class="page-selector">
+            <a class="navStyles" (click)="goToHome()"> Home </a>
+            <a class="navStyles" (click)= "goToBibleStudy()"> Bible Study</a>
+            <a class="navStyles" (click)= "goToFellowship()"> Fellowship </a>
+            <a class="navStyles" (click)= "goToPrayerNight()"> Prayer Night</a>
+            <a class="navStyles" (click)= "goToAboutUs()"> About Us </a>
+        </div>
+    </mat-toolbar>
+</div>
