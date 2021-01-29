@@ -4,48 +4,17 @@ import { VERSE_API_URL, VERSE_API_AUTH_TOKEN, RANDOM_VERSE_API_URL } from "../ap
 import { Observable } from "rxjs";
 
 export interface passage {
-  [key: string]: string;
+  reference: string;
+  text: string;
 }
 
 @Injectable()
 export class VerseService {
   incomingVerse;
-  passages: passage[] = [
-    {
-      key: "John 3:16",
-      value: `For God so loved the world, that he gave his
-                                one and only Son, that whosoever believes in Him shall not
-                                perish but have everlasting life.  `
-    },
-    {
-      key: "John 1:1",
-      value:
-        "In the beginning was the Word and the Word was with God, and the Word was God"
-    },
-    {
-      key: "John 1:12",
-      value: ` But as many as received Him, 
-                                 to them He gave the right to become children of God,
-                                 even to those who believe in His name`
-    },
-    {
-      key: "John 3:5",
-      value: `Jesus answered, "Truly, truly, I say to you, 
-                                unless one is born of water and the Spirit he cannot enter into the kingdom of God.`
-    },
-    {
-      key: "Matthew 11:28",
-      value: `Then Jesus said, “Come to me, all of you who are weary and carry heavy burdens,
-                                 and I will give you rest.`
-    }
-  ];
+
   constructor(private httpClient: HttpClient) {}
 
   public displayPassage() {
-    const random = Math.floor(Math.random() * 5);
-    const verse = this.passages[random];
-    this.incomingVerse = verse.value;
-    return verse;
 
     // let temp;
     // let xhr = new XMLHttpRequest();

@@ -1,6 +1,18 @@
 <div class="footer" id="footer">
-    <button mat-stroked-button id="passageDisplay" (click)="onDisplayPassage()">verse</button>
+    <!-- <button mat-fab id="passageDisplay" (click)="onDisplayPassage()">
+        <mat-icon>menu_book</mat-icon>
+    </button> -->
+    
     <div class="passage">
-        <div class="text">{{test}}</div>
+        <div class="text">{{passage.text}}</div>
+    </div>
+ 
+    <div class="ref-container">
+        <div class="reference">{{passage.reference}}</div>
+        <button mat-mini-fab class="close" (click)="onClosePassageDisiplay()">
+            <mat-icon>close</mat-icon>
+        </button>
+        
+
     </div>
 </div>

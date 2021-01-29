@@ -1,9 +1,9 @@
 <div class="wrapper">
   <div class="background" id="commonBackdrop">
     <mat-toolbar>
-      <nav-bar></nav-bar>
+      <nav-bar (displayPassageEvent)="onDisplayPassageEvent()"></nav-bar>
     </mat-toolbar>
     <router-outlet></router-outlet>
-    <footer></footer>
+    <footer *ngIf="isVisible" @slideInOut (closeDisplayPassageEvent)="onClosePassageDisplayEvent()"></footer>
   </div>
 </div>

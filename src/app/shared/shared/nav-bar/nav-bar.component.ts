@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { Router } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-
+  @Output() displayPassageEvent = new EventEmitter();
   
   title = 'Christ Connection';
 
@@ -54,6 +54,11 @@ export class NavBarComponent implements OnInit {
       case 3: this.goToPrayerNight(); break;
       case 4: this.goToAboutUs(); break;
     }
+  }
+
+
+  onShowPassageDisplay() {
+    this.displayPassageEvent.emit();
   }
 
 }

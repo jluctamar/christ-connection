@@ -6,6 +6,9 @@
     .background {
       height: 100%;
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      // justify-content: space-between;
   
       mat-toolbar {
         padding: 8px;
@@ -26,8 +29,9 @@
   
       footer {
         position: fixed;
-        bottom: 8px;
+        bottom: 0px;
         width: 100%;
+        z-index: 2;
       }
     }
   }

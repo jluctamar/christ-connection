@@ -1,35 +1,69 @@
-@import '../../../../theme.scss';
+@import "../../../../theme.scss";
 
-.footer{
-    display: flex;
-    flex-direction: row;
-    margin: 8px;
-    height: 45px;
+.footer {
+  display: flex;
+  flex-direction: row;
+  height: 45px;
+  width: 100%;
+  background: $appCrimson;
+  opacity: 0.6;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  .mat-stroked-button {
+    background: $appBeige;
+  }
+
+  #passageDisplay {
+    justify-self: center;
+  }
+
+  .passage {
+    font-size: 1.3rem;
+    font-style: italic;
+    margin-left: 16px;
+    margin-right: 16px;
+    align-self: center;
+    height: 100%;
     width: 100%;
+    overflow-y: auto;
 
+    .text {
+      @include set-text-shadow(gray);
+      color: whitesmoke;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: fit-content;
+      flex-wrap: nowrap;
+    }
+  }
 
-    .mat-stroked-button {
-        background: $appBeige;
+  .ref-container {
+    display: flex;
+
+    height: 100%;
+    .close {
+      bottom: 24px;
+      right: 8px;
+      background: black;
+      opacity: 0.9;
+
+      mat-icon {
+        color: $appBronze;
+      }
     }
 
-    #passageDisplay{
-        justify-self: center;
+    .reference {
+      @include set-text-shadow(gray);
+      color: whitesmoke;
+      font-size: 1rem;
+      border-left: $appBlue;
+      border-left-style: groove;
+      border-left-width: thick;
+      padding-left: 8px;
+
     }
-    
-    .passage {
-        font-size: 1.3rem;
-        font-style: italic;
-        margin-left: 16px;
-        margin-right: 16px;
-        align-self: center;
-        height: 100%;
-        width: 100%;
-        overflow-y: auto;
-    
-        .text {
-            @include set-text-shadow(gray);
-            color: black;
-        }
-    }
+  }
 }
-
