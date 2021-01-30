@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { VerseService } from 'src/app/services/verseService';
 
 
@@ -33,6 +34,7 @@ import { VerseService } from 'src/app/services/verseService';
     MatIconModule,
     FlexLayoutModule,
     MatRadioModule,
+    MatTooltipModule
   ],
   exports: [
     CommonModule,
@@ -46,6 +48,7 @@ import { VerseService } from 'src/app/services/verseService';
     MatIconModule,
     FlexLayoutModule,
     MatRadioModule,
+    MatTooltipModule
   ],
   providers: [VerseService]
 })

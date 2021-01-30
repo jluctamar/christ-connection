@@ -9,50 +9,74 @@
   mat-toolbar {
     background: transparent;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
-    .nav-header {
-      width: fit-content;
-      display: flex;
-      .main-header {
-        display: flex;
-        .img-circle {
-          border: goldenrod;
-          border-radius: 100px;
-          border-style: outset;
-          border-width: medium;
-          width: 90px;
-          height: 90px;
-          cursor: pointer;
-        }
-        .title {
-          font-size: 2.3rem;
-          font-family: "Lobster", cursive;
-          display: flex;
-          align-items: center;
-          margin-left: 8px;
-        }
-      }
-    }
     .page-selector {
       display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
 
-      a {
-        text-decoration: none;
-        transition: 150ms;
-        &:hover {
-          text-decoration: underline;
-          text-decoration-color: $appCrimson;
-          text-decoration-thickness: 3px;
-          transform: scale(1.5) translate(0px, -10px);
+      .selector-wrapper {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 50%;
+        .nav-header {
+          width: fit-content;
+          display: flex;
+          .main-header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .img-circle {
+              border: goldenrod;
+              border-radius: 100px;
+              border-style: outset;
+              border-width: medium;
+              width: 70px;
+              height: 70px;
+              cursor: pointer;
+  
+              transition: 150ms;
+              &:hover {
+                box-shadow: 0px 0px  21px 8px goldenrod, 0px 0px 80px 50px gold;
+              }
+            }
+            .title {
+              font-size: 2.3rem;
+              font-family: "Lobster", cursive;
+              display: flex;
+              align-items: center;
+              margin-left: 8px;
+              cursor: pointer;
+  
+              transition: 150ms;
+              &:hover {
+                @include set-text-shadow(goldenrod);
+              }
+            }
+          }
         }
-      }
+  
+        a {
+          text-decoration: none;
+          transition: 150ms;
+          &:hover {
+            text-decoration: underline;
+            text-decoration-color: $appCrimson;
+            text-decoration-thickness: 3px;
+            transform: scale(1.5) translate(0px, -10px);
+          }
+        }
+  
+        .navStyles {
+          font-size: 0.8rem;
+          font-weight: bold;
+          cursor: pointer;
+        }
 
-      .navStyles {
-        margin: 32px;
-        font-size: 0.8rem;
-        font-weight: bold;
-        cursor: pointer;
       }
     }
 
