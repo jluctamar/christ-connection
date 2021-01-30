@@ -1,16 +1,69 @@
 @import "../../../theme.scss";
 
 .wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  .content-container {
     height: 100%;
-    width: 100%;
+    width: 70%;
     display: flex;
-    justify-content: center;
-    overflow-y: auto;
-    .content-container{
-        height: 100%;
-        width: 70%;
-        display: flex;
-        flex-direction: column;
-        background-color: whitesmoke;
+    flex-direction: column;
+    background-color: floralwhite;
+    overflow: auto;
+
+    .mission-statement,
+    .stewards,
+    .church-info {
+      margin: 16px;
     }
+    .sec-header {
+      font-weight: bold;
+      text-decoration: underline;
+      font-size: 1.3rem;
+      font-family: "Lobster", cursive;
+      color: $appCrimson;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+      font-size: 1.5rem;
+    }
+
+    .stewards {
+      .content {
+        mat-card:nth-child(even) {
+          flex-direction: row-reverse;
+        }
+
+        .mat-card {
+          display: flex;
+          background: transparent;
+          margin-bottom: 64px;
+          box-shadow: -9px 0px 0px rgb(0 0 0 / 20%),
+            0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 90%);
+          font-weight: 500;
+          img {
+            border: goldenrod;
+            border-radius: 100px;
+            border-style: inset;
+            border-width: medium;
+            width: 200px;
+            height: 200px;
+          }
+          figcaption {
+              text-align: center;
+              @include set-text-shadow($appBronze);
+              font-size: 1.2rem;
+              font-style: italic;
+          }
+          .mat-card-content {
+            margin: 16px;
+          }
+        }
+      }
+    }
+  }
 }
