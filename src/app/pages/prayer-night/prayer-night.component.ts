@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-prayer-night',
+  selector: 'prayer-night',
   templateUrl: './prayer-night.component.html',
   styleUrls: ['./prayer-night.component.scss']
 })

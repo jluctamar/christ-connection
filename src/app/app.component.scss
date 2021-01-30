@@ -26,7 +26,12 @@
           width: 100%;
         }
       }
-  
+      
+      ::ng-deep about-us, ::ng-deep home-page, ::ng-deep bible-study, ::ng-deep fellowship-page, ::ng-deep prayer-night {
+        height: 100%;
+      }
+
+
       footer {
         position: fixed;
         bottom: 0px;

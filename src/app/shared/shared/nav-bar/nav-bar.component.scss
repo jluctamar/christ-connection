@@ -8,7 +8,9 @@
 
   mat-toolbar {
     background: transparent;
-
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     .nav-header {
       width: fit-content;
       display: flex;
@@ -33,8 +35,6 @@
       }
     }
     .page-selector {
-      width: 100%;
-      margin-left: 128px;
       display: flex;
 
       a {
@@ -44,12 +44,12 @@
           text-decoration: underline;
           text-decoration-color: $appCrimson;
           text-decoration-thickness: 3px;
-          transform: scale(1.3) translate(0px, -10px);
+          transform: scale(1.5) translate(0px, -10px);
         }
       }
 
       .navStyles {
-        margin: 2.2%;
+        margin: 32px;
         font-size: 0.8rem;
         font-weight: bold;
         cursor: pointer;
