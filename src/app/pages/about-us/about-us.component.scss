@@ -32,6 +32,18 @@
       font-size: 1.5rem;
     }
 
+    .mission-statement {
+        
+        .text {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            span.highlight{
+                color: $appBlue;
+            }
+        }
+    }
+
+
     .stewards {
       .content {
         mat-card:nth-child(even) {
@@ -64,6 +76,33 @@
           }
         }
       }
+    }
+
+    .church-info {
+        display: flex;
+        flex-direction: column;
+ 
+     
+
+        .content{
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+
+            .contact {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .join {
+                .sec-one {
+                    display: flex;
+                }
+            }
+
+
+        }
+        
     }
   }
 }
