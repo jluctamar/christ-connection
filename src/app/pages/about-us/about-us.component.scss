@@ -14,10 +14,16 @@
     background-color: floralwhite;
     overflow: auto;
 
+    mat-divider {
+        margin-top: 32px;
+        margin-bottom: 32px;
+        margin-right: 80px;
+    }
+
     .mission-statement,
     .stewards,
     .church-info {
-      margin: 16px;
+      margin: 32px;
     }
     .sec-header {
       font-weight: bold;
@@ -33,16 +39,22 @@
     }
 
     .mission-statement {
-        
-        .text {
-            margin-bottom: 8px;
-            font-size: 1.2rem;
-            span.highlight{
-                color: $appBlue;
+      .text {
+        margin-bottom: 8px;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        span.highlight {
+            &:before {
+                content:  "\00a0 "; // adds a white space 
             }
+            &:after {
+                content:  "\00a0 "; // adds a white space 
+            }
+          color: $appBlue;
         }
+      }
     }
-
 
     .stewards {
       .content {
@@ -66,10 +78,10 @@
             height: 200px;
           }
           figcaption {
-              text-align: center;
-              @include set-text-shadow($appBronze);
-              font-size: 1.2rem;
-              font-style: italic;
+            text-align: center;
+            @include set-text-shadow($appBronze);
+            font-size: 1.2rem;
+            font-style: italic;
           }
           .mat-card-content {
             margin: 16px;
@@ -79,35 +91,47 @@
     }
 
     .church-info {
+      display: flex;
+      flex-direction: column;
+
+      .content {
         display: flex;
-        flex-direction: column;
- 
-     
+        width: 100%;
+        justify-content: space-evenly;
+        font-size: 1rem;
+        font-weight: 500;
 
-        .content{
-            display: flex;
-            width: 100%;
-            justify-content: space-evenly;
-            font-size: 1rem;
-            font-weight: 500;
-
-            .contact {
-                display: flex;
-                flex-direction: column;
-            }
-
-            .join {
-                .sec-one {
-                    display: flex;
-                    .text:nth-child(2) {
-                        margin-left: 16px;
-                    }
-                }
-            }
-
-
+        .sub-header {
+          font-weight: bold;
+          text-decoration: underline;
+          font-size: 1.3rem;
+          font-family: "Lobster", cursive;
+          color: $appCrimson;
+          margin-bottom: 8px;
+          font-size: 1.2rem;
         }
-        
+        .contact {
+          display: flex;
+          flex-direction: column;
+          .address {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+
+        .join {
+          border-left: #51a9bc;
+          border-left-style: ridge;
+          border-left-width: thick;
+          padding-left: 16px;
+          .section-one {
+            display: flex;
+            .text:nth-child(2) {
+              margin-left: 16px;
+            }
+          }
+        }
+      }
     }
   }
 }
