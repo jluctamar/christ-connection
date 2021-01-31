@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { VerseService } from 'src/app/services/verseService';
 
 @Component({
   selector: 'home-page',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private verseService: VerseService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
   }
 
+  goToAboutUs(){
+    this.router.navigate(['about']);
+  }
 }
