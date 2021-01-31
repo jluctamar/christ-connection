@@ -88,6 +88,8 @@
             display: flex;
             width: 100%;
             justify-content: space-evenly;
+            font-size: 1rem;
+            font-weight: 500;
 
             .contact {
                 display: flex;
@@ -97,6 +99,9 @@
             .join {
                 .sec-one {
                     display: flex;
+                    .text:nth-child(2) {
+                        margin-left: 16px;
+                    }
                 }
             }
 
