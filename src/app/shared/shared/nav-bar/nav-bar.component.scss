@@ -86,6 +86,7 @@
     .passageDisplayBtn {
       top: 64px;
       left: 8px;
+      z-index: 1; // to place above overlays
     }
   }
 }

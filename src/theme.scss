@@ -24,3 +24,26 @@ $appBeige: rgba(254, 230, 206, 1);
     $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px,
     $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px;;
 }
+
+
+
+
+/*CSS Animations*/
+
+@keyframes btn-pulse {
+    0% {
+      transform: scale(1); /* Start at Initial Size */
+    }
+    25% {
+      transform: scale(1.1); /* increasing the size */
+    }
+    50% {
+      transform: scale(1.2); /* increasing the size */
+    }
+    75% {
+      transform: scale(1.1); /* deacreasing the size */
+    }
+    100% {
+      transform: scale(1); /* seeting back to initial size */
+    }
+  }
