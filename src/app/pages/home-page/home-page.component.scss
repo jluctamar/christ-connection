@@ -31,9 +31,10 @@
         cursor: default;
         margin-bottom: 64px;
       }
-      .mat-raised-button {
+      .discover-btn {
         border-radius: 45px;
         color: goldenrod;
+        background: floralwhite;
         @include set-text-shadow(gray);
         padding: 16px;
         font-size: 24px;
@@ -50,9 +51,51 @@
           }
           animation-name: to-init-size;
           animation-duration: 850ms;
-          animation-delay: .5s;
+          animation-delay: 0.5s;
           animation-iteration-count: 1;
           animation-timing-function: ease-out;
+        }
+      }
+
+      .info-container {
+        display: flex;
+        background: goldenrod;
+        color: floralwhite;
+        width: 80%;
+        height: 25%;
+        position: fixed;
+        bottom: -45px;
+        border-radius: 25px;
+        box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px,
+          rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px,
+          rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+        padding: 16px;
+        .section-title {
+          font-weight: 500;
+          font-size: 1.5rem;
+          &:before {
+            content: "\00a0 "; // adds a white space
+          }
+          &:after {
+            content: "\00a0 "; // adds a white space
+          }
+        }
+
+        .section-content {
+          font-size: 1.3rem;
+          line-height: 32px;
+          overflow-y: auto;
+        }
+
+        .delve-btn {
+          border-radius: 45px;
+          color: goldenrod;
+          background: floralwhite;
+          transition: 150ms linear;
+          align-self: flex-end;
+          &:hover {
+            transform: scale(1.1);
+          }
         }
       }
     }

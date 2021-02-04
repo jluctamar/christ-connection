@@ -15,3 +15,11 @@ export const SlideInOutAnimation = [
       ])
     ])
   ]
+export const SlideUpAnimation = [
+    trigger('slideUp', [
+      transition(':enter', [
+        style({transform: 'translateY(100%)', opacity: '0'}),
+        animate('900ms ease', style({transform: 'translateX(0%)', opacity: '1'}))
+      ])
+    ])
+  ]
