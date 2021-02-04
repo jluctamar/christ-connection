@@ -1,0 +1,63 @@
+@import "../../../theme.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  .christ-connection-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 45vh;
+    background: $appCrimson;
+    background-image: url("../../../assets/bible-study-pic.png");
+    background-blend-mode: hard-light;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+      rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+    .christ-connection {
+      display: flex;
+      height: 50%;
+      width: 55%;
+      background: $appCrimson;
+      color: floralwhite;
+      box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+        rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+
+      opacity: 0.8;
+      border-radius: 45px;
+      padding: 32px;
+
+      .header {
+        font-weight: 500;
+        font-size: 1.5rem;
+        &:before {
+          content: "\00a0 "; // adds a white space
+        }
+        &:after {
+          content: "\00a0 "; // adds a white space
+        }
+      }
+
+      .CC-content {
+        font-size: 1.3rem;
+        line-height: 32px;
+        align-self: center;
+        overflow-y: auto;
+        @include set-text-shadow($appBlack);
+      }
+    }
+  }
+
+  .sub-wrapper {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 16px;
+  }
+}
