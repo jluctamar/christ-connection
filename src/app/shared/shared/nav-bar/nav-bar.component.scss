@@ -38,10 +38,11 @@
               width: 70px;
               height: 70px;
               cursor: pointer;
-  
+
               transition: 150ms;
               &:hover {
-                box-shadow: 0px 0px  21px 8px goldenrod, 0px 0px 80px 50px gold;
+               // box-shadow: 0px 0px 21px 8px goldenrod, 0px 0px 80px 50px gold;
+                box-shadow:  0px 0px 80px 50px gold;
               }
             }
             .title {
@@ -51,7 +52,7 @@
               align-items: center;
               margin-left: 8px;
               cursor: pointer;
-  
+
               transition: 150ms;
               &:hover {
                 @include set-text-shadow(goldenrod);
@@ -59,7 +60,7 @@
             }
           }
         }
-  
+
         a {
           text-decoration: none;
           transition: 150ms;
@@ -69,17 +70,16 @@
             // text-decoration-thickness: 3px;
             border-bottom: gold;
             border-bottom-width: medium;
-            border-bottom-style:solid;
+            border-bottom-style: solid;
             transform: scale(1.5) translate(0px, -10px);
           }
         }
-  
+
         .navStyles {
           font-size: 0.8rem;
           font-weight: bold;
           cursor: pointer;
         }
-
       }
     }
 

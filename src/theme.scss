@@ -24,6 +24,12 @@ $appBeige: rgba(254, 230, 206, 1);
     $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px,
     $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px;;
 }
+@mixin set-text-shadow-with-glow($color) {
+    text-shadow: $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px,
+    $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px,
+    $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px,
+    $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 30px;;
+}
 
 
 

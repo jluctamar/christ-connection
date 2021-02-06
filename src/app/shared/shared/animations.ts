@@ -15,11 +15,21 @@ export const SlideInOutAnimation = [
       ])
     ])
   ]
+
 export const SlideUpAnimation = [
     trigger('slideUp', [
       transition(':enter', [
-        style({transform: 'translateY(100%)', opacity: '0'}),
-        animate('900ms ease', style({transform: 'translateX(0%)', opacity: '1'}))
+        style({transform: 'translateY(-100%)', opacity: '0'}),
+        animate('700ms ease-out', style({transform: 'translateX(0%)', opacity: '1'}))
+      ])
+    ])
+  ]
+
+  export const ShutterOutAnimation = [
+    trigger('shutterOut', [
+      transition(':enter', [
+        style({transform: 'scalex(0)', opacity: '0'}),
+        animate('700ms ease-out', style({transform: 'scaleX(1)', opacity: '.8'}))
       ])
     ])
   ]
