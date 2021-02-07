@@ -168,12 +168,18 @@
     height: 300vh;
     position: relative;
     background: $appCrimson;
+    background-image: url('../../../assets/lamp-5.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;
+
     box-shadow: rgb(249 171 0 / 23%) 0px 30px 60px -12px inset,
       #ff9800 0px 18px 36px -18px inset;
 
       .horizontal-scroll-wrapper {
         position: sticky;
-        top: 0;
+        top: 245px;
         width: 100%;
         overflow: hidden;
         
