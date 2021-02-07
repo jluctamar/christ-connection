@@ -203,7 +203,21 @@
                     box-shadow: inset -13px -8px 104px -25px rgba(28, 157, 255, 0.87);
                 } 
             }
+            .lesson-background-gospel-series {
+              background-image: url('../../../assets/gospel-series.png');
+              background-repeat: no-repeat;
+              // background-attachment: fixed;
+              background-size: cover;
+            }
+            
+            .lesson-background-exodus-series {
+              background-image: url('../../../assets/exodus-series.png');
+              background-repeat: no-repeat;
+              // background-attachment: fixed;
+              background-size: cover;
+            }
           }
+
       }
 
       
