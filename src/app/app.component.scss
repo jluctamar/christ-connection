@@ -30,6 +30,7 @@
       ::ng-deep about-us, ::ng-deep home-page, ::ng-deep bible-study, ::ng-deep fellowship-page, ::ng-deep prayer-night {
         height: 100vh;
         overflow: auto;
+        scroll-behavior: smooth;
       }
 
 
