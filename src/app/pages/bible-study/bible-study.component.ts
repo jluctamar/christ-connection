@@ -1,8 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, HostListener, Inject, OnInit } from '@angular/core';
-import { Scroll } from '@angular/router';
-import { fromEvent } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ShutterOutAnimation } from 'src/app/shared/shared/animations';
 
 @Component({
@@ -19,8 +16,10 @@ export class BibleStudyComponent implements OnInit {
   zoomLink = 'https://us02web.zoom.us/j/2535558117';
 
   activeMeeting: boolean;
+  openLessonView = false;
+  lessonURL: SafeUrl;
 
-  constructor() {}
+  constructor(private domSanitizer : DomSanitizer) {}
 
   ngOnInit(): void {
     // Todo: Disable the zoom connect buttons on the basis of the designated meeting date and time
@@ -35,8 +34,6 @@ export class BibleStudyComponent implements OnInit {
     // To see what changed:
     const scrollVal = event.srcElement.scrollTop;
     var parentCoords = document.querySelector('.past-lessons-container')as HTMLElement; // gets the position of the parent Div
-    // console.log('I am scrolling ' + scrollVal,'focus Div: ' +  parentCoords.offsetTop + '---'+ parentCoords.offsetHeight);
-    console.log('quotient: ' + ((scrollVal-parentCoords.offsetTop)/parentCoords.offsetTop * 45));
 
     let target = document.querySelector('.lesson-wrapper') as HTMLElement;
     let scrollRate = (scrollVal-parentCoords.offsetTop)/parentCoords.offsetTop * 45
@@ -49,7 +46,17 @@ export class BibleStudyComponent implements OnInit {
 
 
   onZoomConnect() {
-    document.location.href = 'https://us02web.zoom.us/j/2535558117';
+    document.location.href = this.zoomLink;
+  }
+
+  onViewLesson(urlLocation: string) {
+    this.openLessonView = true;
+    this.lessonURL = this.domSanitizer.bypassSecurityTrustResourceUrl(urlLocation);
+    console.log("##################", this.lessonURL)
+  }
+
+  onClosePassageDisplay() {
+    this.openLessonView = false;
   }
 
   ngOnDestroy() {
