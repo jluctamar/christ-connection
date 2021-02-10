@@ -60,6 +60,8 @@
       .content {
         mat-card:nth-child(even) {
           flex-direction: row-reverse;
+          box-shadow: 9px 0px 0px rgb(0 0 0 / 20%),
+          0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 90%);
         }
 
         .mat-card {
