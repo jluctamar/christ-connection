@@ -3,10 +3,10 @@
 .footer {
   display: flex;
   flex-direction: row;
-  height: 55px;
+  height: 65px;
   width: 100%;
   background: $appCrimson;
-  opacity: 0.6;
+  opacity: 0.8;
   padding-top: 8px;
   padding-bottom: 8px;
 
@@ -33,9 +33,9 @@
       color: whitesmoke;
       display: flex;
       justify-content: center;
-      align-items: center;
+      text-align: center;
       height: 100%;
-      width: fit-content;
+      width: 100%;
       flex-wrap: nowrap;
     }
   }

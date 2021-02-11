@@ -1,15 +1,16 @@
 <div class="wrapper">
-    <div class="content-container">
+    
+    <div class="header-container">
         <div class="overlay">
             <div class="text">Welcome to our Site</div>
             <div class="text">Taste and see that the LORD is good.</div>
-            <button mat-raised-button class="discover-btn" (click)="goToAboutUs()"> Discover </button>
-            <div class="info-container" @slideUp>
-                <p class="section-content"> <span class="section-title">Christ Connection:</span>{{christConnection}}</p>
-                <button mat-raised-button class="delve-btn" (click)="goToBibleStudy()"> Delve </button>
-            </div>
+            <!-- <button mat-raised-button class="discover-btn" (click)="goToAboutUs()"> Discover </button> -->
+            <button mat-raised-button class="delve-btn" (click)="goToBibleStudy()"> Delve </button>
         </div>
-        <img src="../../../assets/Under-Vanilla-Skies.jpg" alt=""> <!--// “Under Vanilla Skies” by Lori McNee © 2009  -->
-        
+        <img src="../../../assets/Under-Vanilla-Skies.jpg" alt=""> <!--// “Under Vanilla Skies” by Lori McNee © 2009  -->        
+    </div>
+   
+    <div class="info-container" @slideUp>
+        <p class="section-content"> <span class="section-title">Christ Connection:</span>{{christConnection}}</p>
     </div>
 </div>
