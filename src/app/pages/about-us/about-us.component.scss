@@ -15,9 +15,9 @@
     overflow: auto;
 
     mat-divider {
-        margin-top: 32px;
-        margin-bottom: 32px;
-        margin-right: 80px;
+      margin-top: 32px;
+      margin-bottom: 32px;
+      margin-right: 80px;
     }
 
     .mission-statement,
@@ -45,12 +45,12 @@
         display: flex;
         justify-content: center;
         span.highlight {
-            &:before {
-                content:  "\00a0 "; // adds a white space 
-            }
-            &:after {
-                content:  "\00a0 "; // adds a white space 
-            }
+          &:before {
+            content: "\00a0 "; // adds a white space
+          }
+          &:after {
+            content: "\00a0 "; // adds a white space
+          }
           color: $appBlue;
         }
       }
@@ -61,7 +61,7 @@
         mat-card:nth-child(even) {
           flex-direction: row-reverse;
           box-shadow: 9px 0px 0px rgb(0 0 0 / 20%),
-          0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 90%);
+            0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 90%);
         }
 
         .mat-card {

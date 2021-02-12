@@ -6,7 +6,7 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 
   .header-container {
     display: flex;
@@ -79,7 +79,7 @@
     align-self: center;
     bottom: 30px;
     width: 80%;
-    height: 25%;
+    height: fit-content;
     border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
       rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
@@ -112,5 +112,24 @@
     //     transform: scale(1.1);
     //   }
     // }
+  }
+
+  @media only screen and (max-width: 480px) and (orientation: portrait) {
+    .header-container {
+      .overlay {
+        .text {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .info-container {
+      .section-title {
+        font-size: 1.1rem;
+      }
+      .section-content {
+        font-size: 1rem;
+      }
+    }
   }
 }

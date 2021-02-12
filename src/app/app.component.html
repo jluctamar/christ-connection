@@ -4,6 +4,6 @@
       <nav-bar (displayPassageEvent)="onDisplayPassageEvent()"></nav-bar>
     </mat-toolbar>
     <router-outlet></router-outlet>
-    <footer *ngIf="isVisible" @slideInOut (closeDisplayPassageEvent)="onClosePassageDisplayEvent()"></footer>
+    <footer *ngIf="isVisible" [@slideInOut]="!isSmallScreen"  [@slideUpDown]="isSmallScreen" (closeDisplayPassageEvent)="onClosePassageDisplayEvent()"></footer>
   </div>
 </div>
