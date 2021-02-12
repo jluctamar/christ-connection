@@ -2,15 +2,17 @@
 
 .wrapper {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  border-radius: 35px;
+  height: 15vh ;
 
   mat-toolbar {
-    background: transparent;
     display: flex;
     justify-content: center;
     width: 100%;
+    height: 100%;
+    border-bottom: goldenrod;
+    border-bottom-width: thick;
+    border-bottom-style: groove;
+    background: $appBeige;
     .page-selector {
       display: flex;
       width: 100%;
@@ -83,10 +85,11 @@
       }
     }
 
-    .passageDisplayBtn {
-      top: 64px;
-      left: 8px;
-      z-index: 1; // to place above overlays
-    }
+  }
+  .passageDisplayBtn {
+    right: 0px;
+    top: 6em;
+    position: fixed;
+    z-index: 1; // to place above overlays
   }
 }

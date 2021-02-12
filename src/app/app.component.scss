@@ -1,45 +1,36 @@
 @import "../theme.scss";
 
 .wrapper {
-    height: 100vh;
+  height: 100vh;
+  width: 100%;
+  .background {
+    height: 100%;
     width: 100%;
-    .background {
-      height: 100%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+
+    nav-bar {
+      // display: flex;
+      // align-self: center;
+      // width: 100%;
+    }
+
+    ::ng-deep about-us,
+    ::ng-deep home-page,
+    ::ng-deep bible-study,
+    ::ng-deep fellowship-page,
+    ::ng-deep prayer-night {
+      height: 100vh;
+      overflow: auto;
+      scroll-behavior: smooth;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0px;
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      // justify-content: space-between;
-  
-      mat-toolbar {
-        padding: 8px;
-        height: 20%;
-        border-bottom: goldenrod;
-        border-bottom-width: thick;
-        border-bottom-style: groove;
-        background: $appBeige;
-        display: flex;
-        justify-content: center;
-  
-        nav-bar {
-          display: flex;
-          align-self: center;
-          width: 100%;
-        }
-      }
-      
-      ::ng-deep about-us, ::ng-deep home-page, ::ng-deep bible-study, ::ng-deep fellowship-page, ::ng-deep prayer-night {
-        height: 100vh;
-        overflow: auto;
-        scroll-behavior: smooth;
-      }
-
-
-      footer {
-        position: fixed;
-        bottom: 0px;
-        width: 100%;
-        z-index: 2;
-      }
+      z-index: 2;
     }
   }
-  
+}

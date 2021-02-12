@@ -5,7 +5,7 @@ import { SlideInOutAnimation, SlideUpDownAnimation } from './shared/shared/anima
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [ SlideInOutAnimation, SlideUpDownAnimation]
+  animations: [ SlideUpDownAnimation]
 })
 export class AppComponent {
   title = 'christ-connection';
@@ -16,6 +16,7 @@ export class AppComponent {
   isSmallScreen =  (window.innerWidth || document.documentElement.clientWidth) <= 480;
 
   onDisplayPassageEvent(): void {
+
     if (!this.isVisible) {
 
       this.isVisible = true;
