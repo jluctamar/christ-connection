@@ -6,6 +6,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./about-us.component.scss'],
 })
 export class AboutUsComponent implements OnInit, OnInit, OnDestroy {
+  zoomLink = 'https://us02web.zoom.us/j/2535558117';
   viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
   viewportWidth = window.innerWidth || document.documentElement.clientWidth;
