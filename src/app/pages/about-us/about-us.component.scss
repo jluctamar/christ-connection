@@ -28,23 +28,28 @@
     .sec-header {
       font-weight: bold;
       text-decoration: underline;
-      font-size: 1.3rem;
       font-family: "Lobster", cursive;
       color: $appCrimson;
       width: 100%;
       display: flex;
       justify-content: center;
       margin-bottom: 32px;
-      font-size: 1.5rem;
+      font-size: 2.5rem;
     }
 
     .mission-statement {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
       .text {
-        margin-bottom: 8px;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         display: flex;
         justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        line-height: 1.5;
         span.highlight {
+          letter-spacing: 1px;
           &:before {
             content: "\00a0 "; // adds a white space
           }
@@ -52,6 +57,7 @@
             content: "\00a0 "; // adds a white space
           }
           color: $appBlue;
+          @include set-text-shadow(floralwhite)
         }
       }
     }
@@ -139,4 +145,60 @@
       }
     }
   }
+
+
+  @media only screen and (max-width: 480px) and (orientation: portrait) {
+    .content-container {
+      width: 100%;
+      .sec-header {
+        font-size: 2rem;
+      }
+
+      .mission-statement,
+      .stewards,
+      .church-info {
+
+        margin-bottom: 8px;
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+
+      .mission-statement{
+        margin-top: 45px;
+      }
+
+      .stewards {
+        .content {
+          mat-card:nth-child(even) {
+            flex-direction: column;
+          }
+          .mat-card {
+            flex-direction: column;
+          }
+        }
+      }
+
+      .church-info{
+        .content {
+          flex-direction: column;
+
+          .contact {
+            margin-bottom: 32px;
+          }
+          .join {
+            border:none;
+            padding: 0px;
+            margin-bottom: 16px;
+            .section-one {
+              flex-direction: column;
+              .text:nth-child(2) {
+                margin-left: 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
