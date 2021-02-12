@@ -1,95 +1,160 @@
 @import "../../../../theme.scss";
 
+::ng-deep .mat-list-item-ripple,
+::ng-deep .mat-button-ripple {
+  display: none;
+}
 .wrapper {
   width: 100%;
-  height: 15vh ;
+  height: 15vh;
 
   mat-toolbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
     border-bottom: goldenrod;
     border-bottom-width: thick;
     border-bottom-style: groove;
     background: $appBeige;
-    .page-selector {
+
+    .main-header {
       display: flex;
-      width: 100%;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
+      .img-circle {
+        border: goldenrod;
+        border-radius: 100px;
+        border-style: outset;
+        border-width: medium;
+        width: 70px;
+        height: 70px;
+        cursor: pointer;
 
-      .selector-wrapper {
+        transition: 150ms;
+        &:hover {
+          box-shadow: 0px 0px 21px 8px goldenrod, 0px 0px 80px 50px gold;
+          // box-shadow: 0px 40px 72px 9px gold;
+        }
+      }
+      .title {
+        font-size: 2.3rem;
+        font-family: "Lobster", cursive;
         display: flex;
-        justify-content: space-evenly;
         align-items: center;
-        width: 50%;
-        .nav-header {
-          width: fit-content;
-          display: flex;
-          .main-header {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            .img-circle {
-              border: goldenrod;
-              border-radius: 100px;
-              border-style: outset;
-              border-width: medium;
-              width: 70px;
-              height: 70px;
-              cursor: pointer;
+        margin-left: 8px;
+        cursor: pointer;
 
-              transition: 150ms;
-              &:hover {
-               // box-shadow: 0px 0px 21px 8px goldenrod, 0px 0px 80px 50px gold;
-                box-shadow:  0px 0px 80px 50px gold;
-              }
-            }
-            .title {
-              font-size: 2.3rem;
-              font-family: "Lobster", cursive;
-              display: flex;
-              align-items: center;
-              margin-left: 8px;
-              cursor: pointer;
-
-              transition: 150ms;
-              &:hover {
-                @include set-text-shadow(goldenrod);
-              }
-            }
-          }
-        }
-
-        a {
-          text-decoration: none;
-          transition: 150ms;
-          &:hover {
-            // text-decoration: underline;
-            // text-decoration-color: $appCrimson;
-            // text-decoration-thickness: 3px;
-            border-bottom: gold;
-            border-bottom-width: medium;
-            border-bottom-style: solid;
-            transform: scale(1.5) translate(0px, -10px);
-          }
-        }
-
-        .navStyles {
-          font-size: 0.8rem;
-          font-weight: bold;
-          cursor: pointer;
+        transition: 150ms;
+        &:hover {
+          @include set-text-shadow(goldenrod);
         }
       }
     }
 
+    .selector-wrapper {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-right: 5%;
+      width: 385px;
+
+      .mat-list-single-selected-option {
+        background: transparent;
+      }
+      .mat-list-option {
+        text-decoration: none;
+        transition: 150ms;
+        width: fit-content;
+        &:hover {
+          background: transparent;
+          text-decoration: underline;
+          text-decoration-color: gold;
+          text-decoration-thickness: 3px;
+          text-underline-offset: 3px;
+          transform: scale(2);
+        }
+      }
+
+      .navStyles {
+        font-size: 0.8rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .small-screen-view {
+    display: none;
   }
   .passageDisplayBtn {
     right: 0px;
     top: 6em;
     position: fixed;
     z-index: 1; // to place above overlays
+  }
+
+  @media only screen and (max-width: 750px){
+    mat-toolbar {
+      flex-direction: row-reverse;
+
+      .main-header {
+        .title {
+          font-size: 1.5rem;
+        }
+
+        img {
+          display: none;
+        }
+      }
+      .selector-wrapper {
+        display: none !important;
+      }
+
+      .small-screen-view {
+        display: flex !important;
+        .menu-button {
+          background: transparent;
+          color: $appCrimson;
+          mat-icon {
+            font-size: 2.5rem;
+            vertical-align: top;
+          }
+        }
+
+        .page-menu {
+          z-index: 2;
+          background: floralwhite;
+          width: 100vw;
+          height: 90vh;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+
+          .mat-selection-list {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-evenly;
+            text-align: center;
+
+            .mat-list-option {
+              font-size: 2.5rem;
+              line-height: 4;
+              font-family: "Lobster", cursive;
+              @include set-text-shadow(grey);
+            }
+
+            mat-divider {
+              margin-top: 16px;
+              margin-bottom: 16px;
+              margin-right: 80px;
+              margin-left: 80px;
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -1,64 +1,68 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { Router } from '@angular/router';
+import { SlideUpDownAnimation } from '../animations';
 
 @Component({
   selector: 'nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  styleUrls: ['./nav-bar.component.scss'],
+  animations: [SlideUpDownAnimation]
 })
 export class NavBarComponent implements OnInit {
   @Output() displayPassageEvent = new EventEmitter();
-  
+
   title = 'Christ Connection';
+  togglePageMenu = false;
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  
+
   // routing to the home page
-  goToHome(){
+  goToHome(): void {
     this.router.navigate(['home']);
+    this.togglePageMenu = false;
   }
 
   // routing to the gallery page
-  goToFellowship(){
+  goToFellowship(): void {
     this.router.navigate(['fellowship']);
+    this.togglePageMenu = false;
+
   }
 
   // routing to bible study page
-  goToBibleStudy(){
+  goToBibleStudy(): void {
     this.router.navigate(['bible-study']);
+    this.togglePageMenu = false;
+
   }
 
   // routing to prayer page
-  goToPrayerNight(){
+  goToPrayerNight(): void {
     this.router.navigate(['prayer']);
+    this.togglePageMenu = false;
+
   }
 
   // routing to about page
-  goToAboutUs(){
+  goToAboutUs(): void {
     this.router.navigate(['about']);
-  }
-  
+    this.togglePageMenu = false;
 
-  //function takes in information about the currently selected tab and routes to the corresponding page 
-  tabChange( tabChangeEvent: MatTabChangeEvent){
-
-    switch(tabChangeEvent.index){
-      case 0: this.goToHome(); break;
-      case 1: this.goToBibleStudy(); break;
-      case 2: this.goToFellowship(); break;
-      case 3: this.goToPrayerNight(); break;
-      case 4: this.goToAboutUs(); break;
-    }
   }
 
 
-  onShowPassageDisplay() {
+
+  onShowPassageDisplay(): void {
     this.displayPassageEvent.emit();
+  }
+
+  onTogglePageMenu(): void {
+    this.togglePageMenu = !this.togglePageMenu;
   }
 
 }

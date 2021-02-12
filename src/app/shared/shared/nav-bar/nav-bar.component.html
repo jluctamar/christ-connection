@@ -1,23 +1,39 @@
 <div class="wrapper">
-    <mat-toolbar id="navBar">
-        <div class="page-selector">
-          <div class="selector-wrapper">
-              <!-- <a class="navStyles" (click)="goToHome()"> Home </a> -->
-              <a class="navStyles" (click)= "goToBibleStudy()"> Bible Study</a>
-              <!-- <a class="navStyles" (click)= "goToFellowship()"> Fellowship </a> -->
-             
-              <div class="nav-header">
-                  <div class="main-header">
-                      <img  matTooltip="Home"  matTooltipPosition="right" src="../../assets/FSBCWhitePlains.jpg" alt="FSBC-IMG" class="img-circle" (click)="goToHome()">
-                      <div  matTooltip="Home"  matTooltipPosition="below" class="title" (click)="goToHome()">{{title}}</div>
-                  </div>
-              </div>
-             
-              <!-- <a class="navStyles" (click)= "goToPrayerNight()"> Prayer Night</a> -->
-              <a class="navStyles" (click)= "goToAboutUs()"> About Us </a>
-          </div>
+    <mat-toolbar class="navBar">
+            
+        
+            <div class="main-header">
+                <img  src="../../assets/FSBCWhitePlains.jpg" alt="FSBC-IMG" class="img-circle" (click)="goToHome()">
+                <div  class="title" (click)="goToHome()">{{title}}</div>
+            </div>
+            
 
-        </div>
+            <mat-selection-list #navLinks class="selector-wrapper" [multiple]="false">
+                <mat-list-option class="navStyles" (click)="goToHome()"> Home </mat-list-option>
+                <mat-list-option class="navStyles" (click)= "goToBibleStudy()"> Bible Study</mat-list-option>
+                <mat-list-option class="navStyles" (click)= "goToAboutUs()"> About Us </mat-list-option>
+                <!-- <a class="navStyles" (click)= "goToFellowship()"> Fellowship </a> -->           
+                <!-- <a class="navStyles" (click)= "goToPrayerNight()"> Prayer Night</a> -->
+            </mat-selection-list>
+            
+
+            <div class="small-screen-view" >
+                <button mat-button class="menu-button" (click)="onTogglePageMenu()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <div class="page-menu" *ngIf="togglePageMenu"  @slideUpDown>
+                    <mat-selection-list #navLinks class="full-page-link-wrapper" [multiple]="false">
+                        <mat-list-option class="navStyles" (click)="goToHome()"> Home </mat-list-option>
+                        <mat-divider></mat-divider>
+                        <mat-list-option class="navStyles" (click)= "goToBibleStudy()"> Bible Study</mat-list-option>
+                        <mat-divider></mat-divider>
+                        <mat-list-option class="navStyles" (click)= "goToAboutUs()"> About Us </mat-list-option>
+                        <!-- <a class="navStyles" (click)= "goToFellowship()"> Fellowship </a> -->           
+                        <!-- <a class="navStyles" (click)= "goToPrayerNight()"> Prayer Night</a> -->
+                    </mat-selection-list>
+                </div>
+            </div>
+
         
     </mat-toolbar>
     <button mat-fab  matTooltip="Scripture Say..."  matTooltipPosition="right"class="passageDisplayBtn" (click)="onShowPassageDisplay()">
