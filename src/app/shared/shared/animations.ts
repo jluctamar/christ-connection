@@ -71,3 +71,14 @@ export const ShutterOutAnimation = [
     ]),
   ]),
 ];
+
+export const RotateAnimation = [
+  trigger('rotate', [
+    transition(':enter', [
+      animate(
+        '950ms ease-out',
+        style({ transform: 'rotate(180deg)'})
+      ),
+    ]),
+  ]),
+];

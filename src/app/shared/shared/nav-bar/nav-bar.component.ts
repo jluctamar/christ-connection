@@ -1,13 +1,13 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { Router } from '@angular/router';
-import { SlideUpDownAnimation } from '../animations';
+import { RotateAnimation, SlideUpDownAnimation } from '../animations';
 
 @Component({
   selector: 'nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
-  animations: [SlideUpDownAnimation]
+  animations: [SlideUpDownAnimation, RotateAnimation]
 })
 export class NavBarComponent implements OnInit {
   @Output() displayPassageEvent = new EventEmitter();

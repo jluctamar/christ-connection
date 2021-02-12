@@ -18,8 +18,9 @@
             
 
             <div class="small-screen-view" >
-                <button mat-button class="menu-button" (click)="onTogglePageMenu()">
-                    <mat-icon>menu</mat-icon>
+                <button mat-button class="action-buttons" (click)="onTogglePageMenu()">
+                    <mat-icon *ngIf="!togglePageMenu" class="menu-btn">menu</mat-icon>
+                    <mat-icon *ngIf="togglePageMenu"  class="close-btn" @rotate>close</mat-icon>
                 </button>
                 <div class="page-menu" *ngIf="togglePageMenu"  @slideUpDown>
                     <mat-selection-list #navLinks class="full-page-link-wrapper" [multiple]="false">

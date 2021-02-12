@@ -114,12 +114,16 @@
 
       .small-screen-view {
         display: flex !important;
-        .menu-button {
+        .action-buttons {
           background: transparent;
           color: $appCrimson;
-          mat-icon {
+          .mat-icon {
             font-size: 2.5rem;
             vertical-align: top;
+            &.close-btn {
+              height: 40px;
+              width: 40px;
+            }
           }
         }
 
