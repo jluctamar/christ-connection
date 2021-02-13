@@ -53,3 +53,44 @@ $appBeige: rgba(254, 230, 206, 1);
       transform: scale(1); /* seeting back to initial size */
     }
   }
+
+@keyframes bounce {
+    0% {
+      height: 450px ; 
+      width: 450px;
+    }
+    25% {
+      height: 450px; 
+      width: 400px;
+    }
+    50% {
+      height: 375px; 
+      width: 460px;
+      transform:translateY(-15px)
+    }
+    75% {
+      height: 400px; 
+      width: 450px;
+    }
+    100% {
+
+      transform:translateY(0px)
+    }
+  }
+// @keyframes bounce-shadow {
+//     0% {
+//       transform: scale(1); /* Start at Initial Size */
+//     }
+//     25% {
+//       transform: scale(1.1); /* increasing the size */
+//     }
+//     50% {
+//       transform: scale(1.2); /* increasing the size */
+//     }
+//     75% {
+//       transform: scale(1.1); /* deacreasing the size */
+//     }
+//     100% {
+//       transform: scale(1); /* seeting back to initial size */
+//     }
+//   }

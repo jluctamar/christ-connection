@@ -173,6 +173,7 @@
     justify-content: center;
     align-items: center;
     padding: 64px;
+    // height: 500px;
 
     .circle-container {
       display: flex;
@@ -180,9 +181,11 @@
       justify-content: center;
       align-items: center;
       box-shadow: rgb(50 50 93 / 25%) 0px 30px 60px -12px inset, rgb(0 0 0 / 30%) 0px 18px 36px -18px inset;
-      border-radius: 245px;
+      border-radius: 50%;
       width: 450px;
       height: 450px;
+
+      // animation: bounce 900ms infinite 
     }
 
     .text {
@@ -228,7 +231,7 @@
 
   .past-lessons-container {
     width: 100%;
-    height: 350vh;
+    height: 550vh;
     position: relative;
     background: $appCrimson;
     background-image: url("../../../assets/lamp-5.png");
@@ -406,7 +409,7 @@
     }
   }
 
-  @media only screen and (max-height: 750px) {
+  @media only screen and (max-height: 750px) and (min-height: 600px) {
     .past-lessons-container {
       .horizontal-scroll-wrapper {
         top: 200px;
