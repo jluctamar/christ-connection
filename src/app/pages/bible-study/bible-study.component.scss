@@ -8,22 +8,29 @@
 
   .christ-connection-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    position: relative;
     align-items: center;
     width: 100%;
-    height: 45vh;
-    background: $appCrimson;
-    background-image: url("../../../assets/bible-study-pic.png");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: contain;
-    background-blend-mode: hard-light;
+    height: fit-content;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
       rgba(0, 0, 0, 0.22) 0px 10px 10px;
 
+    .img-header {
+      width: 100%;
+      height: 45vh;
+      background: $appCrimson;
+      background-image: url("../../../assets/bible-study-pic.png");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      background-blend-mode: hard-light;
+    }
     .christ-connection {
       display: flex;
-      height: 50%;
+      position: absolute;
+      height: fit-content;
       width: 55%;
       background: $appCrimson;
       color: floralwhite;
@@ -33,6 +40,7 @@
       opacity: 0.8;
       border-radius: 45px;
       padding: 32px;
+      margin-top: 32px;
 
       .header {
         font-weight: 500;
@@ -57,7 +65,7 @@
         background: $appBronze;
         color: floralwhite;
         @include set-text-shadow($appCrimson);
-        width: 200px;
+        width: 30em;
         height: 60px;
         left: 55px;
         bottom: -55px;
@@ -136,6 +144,8 @@
           margin-bottom: 32px;
           font-size: 1.5rem;
           font-weight: 500;
+          line-height: 1.2;
+          text-align: center;
         }
 
         .horizontal-divider {
@@ -146,8 +156,8 @@
         }
 
         p {
-            font-size: 1.3rem;
-            line-height: 45px;
+          font-size: 1.3rem;
+          line-height: 45px;
         }
       }
 
@@ -156,10 +166,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        .text {
+          font-size: 1rem;
+        }
       }
     }
   }
-
 
   .past-lesson-summary-overlay {
     display: flex;
@@ -174,23 +187,25 @@
     right: 0;
     bottom: 0;
     z-index: 1;
-    background-color: rgba(37, 45, 80, .5);
+    background-color: rgba(37, 45, 80, 0.8);
 
     .close {
       display: flex;
       justify-content: flex-end;
       width: 100%;
       .closeDisplayBtn {
-        margin-right:8px;
+        margin-right: 8px;
         background: floralwhite;
-        opacity: .8;
+        opacity: 0.8;
       }
     }
     embed {
       height: 90vh;
       width: 90%;
     }
-
+    a {
+      display: none;
+    }
   }
 
   .past-lessons-container {
@@ -198,7 +213,7 @@
     height: 350vh;
     position: relative;
     background: $appCrimson;
-    background-image: url('../../../assets/lamp-5.png');
+    background-image: url("../../../assets/lamp-5.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -207,81 +222,171 @@
     box-shadow: rgb(249 171 0 / 23%) 0px 30px 60px -12px inset,
       #ff9800 0px 18px 36px -18px inset;
 
-      .horizontal-scroll-wrapper {
-        position: sticky;
-        top: 245px;
-        width: 100%;
-        overflow: hidden;
-        
-        .lesson-wrapper {
-            display: flex;
-            width: fit-content;
-              .lesson {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                padding: 16px;
-                width: 320px;
-                height: 320px;
-                margin: 16px;
-                border-radius: 32px;
-                box-shadow: -15px 24px 31px -20px rgba(127, 132, 145, 1);  
-               
-                // Set background image
-                background: $appBronze;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
+    .horizontal-scroll-wrapper {
+      position: sticky;
+      top: 245px;
+      width: 100%;
+      overflow: hidden;
 
+      .lesson-wrapper {
+        display: flex;
+        width: fit-content;
+        .lesson {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 16px;
+          width: 320px;
+          height: 320px;
+          margin: 16px;
+          border-radius: 32px;
+          box-shadow: -15px 24px 31px -20px rgba(127, 132, 145, 1);
 
-                color: floralwhite;
-                @include set-text-shadow($appBronze);
-                font-size: 1.2rem;
-                cursor: pointer;
+          // Set background image
+          background: $appBronze;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
 
-        
-                &:hover {
-                    box-shadow: inset -13px -8px 104px -25px rgba(28, 157, 255, 0.87);
-                } 
+          color: floralwhite;
+          @include set-text-shadow($appBronze);
+          font-size: 1.2rem;
+          cursor: pointer;
 
-                .title {
-                    text-align: center;
-                    margin-bottom: 16px;
-                    line-height: 24px;
-                }
-                .passage {
-                    text-align: center;
-                }
-            }
-            .lesson-background-gospel-series {
-              background-image: url('../../../assets/gospel-series.png');
-              background-repeat: no-repeat;
-              background-size: cover;
-            }
-
-            .lesson-background-exodus-series {
-              background-image: url('../../../assets/exodus-series.png');
-              background-repeat: no-repeat;
-              background-size: cover;
-            }
+          &:hover {
+            box-shadow: inset -13px -8px 104px -25px rgba(28, 157, 255, 0.87);
           }
 
-      }
+          .title {
+            text-align: center;
+            margin-bottom: 16px;
+            line-height: 24px;
+          }
+          .passage {
+            text-align: center;
+          }
+        }
+        .lesson-background-gospel-series {
+          background-image: url("../../../assets/gospel-series.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
 
-      
-      
+        .lesson-background-exodus-series {
+          background-image: url("../../../assets/exodus-series.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
     }
-    
-    .resources-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5rem;
+  }
+
+  .resources-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 100%;
+    height: 45vh;
+    color: floralwhite;
+    @include set-text-shadow($appCrimson);
+    background: $appBlack;
+  }
+
+  @media only screen and (max-width: 950px) {
+    .christ-connection-container {
+      position: unset;
+      height: 80vh;
+      justify-content: space-between;
+      box-shadow: none;
+
+      .img-header {
+        box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px,
+          rgb(0 0 0 / 22%) 0px 10px 10px;
+      }
+      .christ-connection {
+        position: relative;
+        height: fit-content;
+        width: 95%;
+        padding: 16px;
+        border-radius: 32px;
+
+        .CC-content {
+          font-size: 1rem;
+        }
+        .connect-btn {
+          position: absolute;
+          bottom: -108px;
+          font-size: 1.6rem;
+          width: 10em;
+          // to center an absolutely position element
+          left: 0;
+          right: 0;
+          margin: auto;
+
+          animation-name: btn-pulse;
+          animation-duration: 850ms;
+          animation-delay: 0.2s;
+          animation-iteration-count: infinite;
+          animation-timing-function: ease-out;
+        }
+      }
+    }
+
+    .sub-wrapper {
+      padding: 8px;
+      margin-top: 135px;
+      flex-direction: column-reverse;
+      height: fit-content;
       width: 100%;
-      height: 45vh;
-      color: floralwhite;
-      @include set-text-shadow($appCrimson);
-      background: $appBlack;
+      background: floralwhite;
+      border-radius: 4px;
+      mat-divider {
+        display: none;
+      }
+      .content-container {
+        width: 100%;
+        height: fit-content;
+        overflow: none;
+      }
+      .img-container {
+        width: 100%;
+        margin-bottom: 32px;
+      }
     }
+    .past-lesson-summary-overlay {
+      a {
+        display: flex;
+        font-weight: bold;
+        color: gold;
+        font-size: 3rem;
+        position: absolute
+      }
+    }
+    .past-lessons-container {
+      background-image: url("../../../assets/lamp-mobile.png");
+      height: 950vh;
+
+      .horizontal-scroll-wrapper {
+        top: 195px;
+      }
+    }
+
+    .resources-container {
+      .disclaimer {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  @media only screen and (max-height: 750px) {
+
+    
+    .past-lessons-container {
+      .horizontal-scroll-wrapper {
+        top: 200px;
+      }
+    }
+  }
 }

@@ -1,6 +1,7 @@
 <div class="wrapper">
     <div class="content-container">
         <div class="christ-connection-container">
+            <div class="img-header"></div>
             <div class="christ-connection" @shutterOut>
                 <p class="CC-content"> <span class="header">Christ Connection:</span>{{christConnection}}</p>
                 <button mat-raised-button matTooltip="Connect With Us 6pm Tuesdays"  matTooltipPosition="right" class="connect-btn" (click)="onZoomConnect()"> Connect </button>
@@ -25,7 +26,8 @@
 
                 </div>
                 <div class="connect-info">
-                    <div class="text">Join Us On Zoom (Tuesday Evenings at 6pm):</div>
+                    <div class="text">Join Us On Zoom </div>
+                    <div class="text">Tuesday Evenings at 6pm </div>
                     <div class="text">https://us02web.zoom.us/j/2535558117</div>
                 </div>
             </div>
@@ -44,6 +46,7 @@
                 </button>
             </div>
             <embed [src]="lessonURL" class="embeded"  @shutterOut />
+            <!-- <a href="{{lessonURL}}">Download the PDF</a> -->
         </div>
         
         <div class="past-lessons-container">
