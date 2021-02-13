@@ -82,7 +82,7 @@
     margin-top: 16px;
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    height: fit-content;
     width: 100%;
     padding: 64px;
 
@@ -126,12 +126,11 @@
 
     .content-container {
       width: 50%;
-      height: 100%;
+      height: fit-content;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 8px;
-      overflow-y: auto;
 
       .current-lesson {
         display: flex;
@@ -161,16 +160,30 @@
         }
       }
 
-      .connect-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    }
+  }
+  .connect-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 64px;
 
-        .text {
-          font-size: 1rem;
-        }
-      }
+    .circle-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: rgb(50 50 93 / 25%) 0px 30px 60px -12px inset, rgb(0 0 0 / 30%) 0px 18px 36px -18px inset;
+      border-radius: 245px;
+      width: 450px;
+      height: 450px;
+    }
+
+    .text {
+      font-size: 1.4rem;
+      line-height: 1.5;
+      font-weight: 500;
     }
   }
 
@@ -355,13 +368,21 @@
         margin-bottom: 32px;
       }
     }
+    .connect-info {
+      background: floralwhite;
+      .circle-container {
+        .text {
+          font-size: 1rem;
+        }
+      }
+    }
     .past-lesson-summary-overlay {
       a {
         display: flex;
         font-weight: bold;
         color: gold;
         font-size: 3rem;
-        position: absolute
+        position: absolute;
       }
     }
     .past-lessons-container {
@@ -369,7 +390,7 @@
       height: 950vh;
 
       .horizontal-scroll-wrapper {
-        top: 195px;
+        top: 260px;
       }
     }
 
@@ -381,8 +402,6 @@
   }
 
   @media only screen and (max-height: 750px) {
-
-    
     .past-lessons-container {
       .horizontal-scroll-wrapper {
         top: 200px;
