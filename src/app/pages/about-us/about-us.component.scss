@@ -13,6 +13,9 @@
     flex-direction: column;
     background-color: floralwhite;
     overflow: auto;
+    box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px,
+      rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px,
+      rgb(0 0 0 / 9%) 0px -3px 5px;
 
     mat-divider {
       margin-top: 32px;
@@ -57,7 +60,7 @@
             content: "\00a0 "; // adds a white space
           }
           color: $appBlue;
-          @include set-text-shadow(floralwhite)
+          @include set-text-shadow(floralwhite);
         }
       }
     }
@@ -147,7 +150,7 @@
           .section-one {
             display: flex;
             flex-direction: column;
-            .text{
+            .text {
               margin-bottom: 8px;
             }
           }
@@ -155,7 +158,6 @@
       }
     }
   }
-
 
   @media only screen and (max-width: 480px) and (orientation: portrait) {
     .content-container {
@@ -167,13 +169,12 @@
       .mission-statement,
       .stewards,
       .church-info {
-
         margin-bottom: 8px;
         margin-left: 8px;
         margin-right: 8px;
       }
 
-      .mission-statement{
+      .mission-statement {
         margin-top: 45px;
       }
 
@@ -188,7 +189,7 @@
         }
       }
 
-      .church-info{
+      .church-info {
         .content {
           flex-direction: column;
 
@@ -197,7 +198,7 @@
             padding: 8px;
           }
           .join {
-            border:none;
+            border: none;
             padding: 8px;
             margin-bottom: 16px;
           }
@@ -206,9 +207,7 @@
     }
   }
 
-
-
-  @media only screen and (max-width: 900px)  {
+  @media only screen and (max-width: 900px) {
     .content-container {
       width: 100%;
       .sec-header {
@@ -227,5 +226,4 @@
       }
     }
   }
-
 }
