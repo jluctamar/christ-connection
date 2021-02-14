@@ -24,6 +24,8 @@
       justify-content: center;
       align-items: center;
       .img-circle {
+        background-image: url("../../../../assets/FSBCWhitePlains.jpg");
+        background-size: cover;
         border: goldenrod;
         border-radius: 100px;
         border-style: outset;
@@ -104,7 +106,7 @@
           font-size: 1.5rem;
         }
 
-        img {
+        .img-circle{
           display: none;
         }
       }

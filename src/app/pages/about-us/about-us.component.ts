@@ -32,6 +32,7 @@ export class AboutUsComponent implements OnInit, OnInit, OnDestroy {
     const thirdCard = document.querySelector(' .card-three') as HTMLElement;
     const fourthCard = document.querySelector('.card-four') as HTMLElement;
 
+    // LOGS FOR DEBUGGING
     console.group('OffsetTop');
     console.log(
       'Scroll Value(Parent):',
@@ -100,6 +101,9 @@ export class AboutUsComponent implements OnInit, OnInit, OnDestroy {
       fourthCard.style.opacity = '1';
 
     }
+
+    // EDGE CASE: When the app is viewed a high height resolution (ie 2000+) but minimal scrolling height (ie 100px) 
+    // not all the cards will display
   };
 
   ngOnDestroy(): void {
