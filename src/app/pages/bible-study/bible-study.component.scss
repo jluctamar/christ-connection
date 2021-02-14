@@ -5,7 +5,7 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  .page-content-container{
+  .page-content-container {
     overflow-y: auto;
     .christ-connection-container {
       display: flex;
@@ -17,10 +17,11 @@
       height: fit-content;
       box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
         rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  
+
       .img-header {
         width: 100%;
-        height: 45vh;
+        position: sticky;
+        height: 60vh;
         background: $appCrimson;
         background-image: url("../../../assets/bible-study-pic.png");
         background-repeat: no-repeat;
@@ -37,12 +38,12 @@
         color: floralwhite;
         box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
           rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-  
+
         opacity: 0.8;
         border-radius: 45px;
         padding: 32px;
-        margin-top: 32px;
-  
+        margin-top: 16px;
+
         .header {
           font-weight: 500;
           font-size: 1.5rem;
@@ -53,7 +54,7 @@
             content: "\00a0 "; // adds a white space
           }
         }
-  
+
         .CC-content {
           font-size: 1.3rem;
           line-height: 32px;
@@ -71,19 +72,18 @@
           left: 55px;
           bottom: -55px;
           border-radius: inherit;
-  
+
           border: goldenrod;
           border-radius: 100px;
           border-style: ridge;
           border-width: medium;
-  
+
           &:hover {
             box-shadow: 0px 0px 25px 20px gold;
           }
         }
       }
     }
-
   }
 
   .sub-wrapper {
@@ -105,7 +105,7 @@
       box-shadow: rgb(204 219 232) 3px 3px 6px 0px inset,
         rgb(255 255 255 / 50%) -3px -3px 6px 1px inset;
       .current-lesson-img {
-        background-image: url('../../../assets/jesus-and-zaccheus.png');
+        background-image: url("../../../assets/jesus-and-zaccheus.png");
         background-size: cover;
         width: 100%;
         height: 90%;
@@ -169,7 +169,6 @@
           line-height: 45px;
         }
       }
-
     }
   }
   .connect-info {
@@ -178,19 +177,21 @@
     justify-content: center;
     align-items: center;
     padding: 64px;
-    // height: 500px;
+    height: 635px;
+    width: 100%;
 
     .circle-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      box-shadow: rgb(50 50 93 / 25%) 0px 30px 60px -12px inset, rgb(0 0 0 / 30%) 0px 18px 36px -18px inset;
+      box-shadow: rgb(50 50 93 / 25%) 0px 30px 60px -12px inset,
+        rgb(0 0 0 / 30%) 0px 18px 36px -18px inset;
       border-radius: 50%;
       width: 450px;
       height: 450px;
 
-      // animation: bounce 900ms infinite 
+      // animation: bounce 900ms infinite
     }
 
     .text {
@@ -238,7 +239,7 @@
     width: 100%;
     height: 550vh;
     position: relative;
-    // background: $appCrimson;
+    background: $appCrimson;
     background-image: url("../../../assets/lamp-5.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -327,14 +328,13 @@
   ********************************/
 
   @media only screen and (max-width: 950px) {
-    .page-content-container{
-
+    .page-content-container {
       .christ-connection-container {
         position: unset;
         height: 80vh;
         justify-content: space-between;
         box-shadow: none;
-  
+
         .img-header {
           box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px,
             rgb(0 0 0 / 22%) 0px 10px 10px;
@@ -345,7 +345,7 @@
           width: 95%;
           padding: 16px;
           border-radius: 32px;
-  
+
           .CC-content {
             font-size: 1rem;
           }
@@ -358,7 +358,7 @@
             left: 0;
             right: 0;
             margin: auto;
-  
+
             animation-name: btn-pulse;
             animation-duration: 850ms;
             animation-delay: 0.2s;
@@ -367,7 +367,7 @@
           }
         }
       }
-  
+
       .sub-wrapper {
         padding: 8px;
         margin-top: 135px;
@@ -409,23 +409,21 @@
       .past-lessons-container {
         background-image: url("../../../assets/lamp-mobile.png");
         height: 950vh;
-  
+
         .horizontal-scroll-wrapper {
           top: 260px;
         }
       }
-  
+
       .resources-container {
         .disclaimer {
           font-size: 0.8rem;
         }
       }
     }
-
-    }
+  }
 
   @media only screen and (max-height: 750px) and (min-height: 600px) {
-
     .past-lessons-container {
       .horizontal-scroll-wrapper {
         top: 200px;
