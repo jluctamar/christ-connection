@@ -19,8 +19,8 @@
       rgb(0 0 0 / 9%) 0px -3px 5px;
 
     mat-divider {
-      margin-top: 32px;
-      margin-bottom: 32px;
+      margin-top: 64px;
+      margin-bottom: 64x;
       margin-right: 80px;
     }
 
@@ -185,6 +185,7 @@
   }
 
   @media only screen and (max-width: 480px) and (orientation: portrait) {
+    overflow-y: hidden;
     .content-container {
       width: 100%;
       .sec-header {
@@ -233,6 +234,7 @@
   }
 
   @media only screen and (max-width: 900px) {
+    overflow-y: hidden;
     .content-container {
       width: 100%;
       .sec-header {

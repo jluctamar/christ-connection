@@ -318,6 +318,8 @@
   }
 
   @media only screen and (max-width: 950px) {
+    overflow-x: hidden;
+    overflow-y: hidden;
     .christ-connection-container {
       position: unset;
       height: 80vh;
@@ -412,6 +414,8 @@
   }
 
   @media only screen and (max-height: 750px) and (min-height: 600px) {
+    overflow-x: hidden;
+    overflow-y: hidden;
     .past-lessons-container {
       .horizontal-scroll-wrapper {
         top: 200px;

@@ -119,6 +119,7 @@
   }
 
   @media only screen and (max-width: 480px) and (orientation: portrait) {
+    overflow-y: hidden;
     .header-container {
       .overlay {
         .text {
