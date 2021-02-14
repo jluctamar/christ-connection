@@ -65,7 +65,11 @@
         }
       }
     }
-    img {
+    .header-img {
+      background-image: url("../../../assets/Under-Vanilla-Skies.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: bottom;
       width: 100%;
       height: 69vh;
     }
