@@ -5,82 +5,85 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-
-  .christ-connection-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    align-items: center;
-    width: 100%;
-    height: fit-content;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-      rgba(0, 0, 0, 0.22) 0px 10px 10px;
-
-    .img-header {
-      width: 100%;
-      height: 45vh;
-      background: $appCrimson;
-      background-image: url("../../../assets/bible-study-pic.png");
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-      background-blend-mode: hard-light;
-    }
-    .christ-connection {
+  .page-content-container{
+    overflow-y: auto;
+    .christ-connection-container {
       display: flex;
-      position: absolute;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      align-items: center;
+      width: 100%;
       height: fit-content;
-      width: 55%;
-      background: $appCrimson;
-      color: floralwhite;
-      box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-        rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-
-      opacity: 0.8;
-      border-radius: 45px;
-      padding: 32px;
-      margin-top: 32px;
-
-      .header {
-        font-weight: 500;
-        font-size: 1.5rem;
-        &:before {
-          content: "\00a0 "; // adds a white space
-        }
-        &:after {
-          content: "\00a0 "; // adds a white space
-        }
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  
+      .img-header {
+        width: 100%;
+        height: 45vh;
+        background: $appCrimson;
+        background-image: url("../../../assets/bible-study-pic.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-blend-mode: hard-light;
       }
-
-      .CC-content {
-        font-size: 1.3rem;
-        line-height: 32px;
-        align-self: center;
-        overflow-y: auto;
-        @include set-text-shadow($appBlack);
-      }
-      .connect-btn {
-        align-self: flex-end;
-        background: $appBronze;
+      .christ-connection {
+        display: flex;
+        position: absolute;
+        height: fit-content;
+        width: 55%;
+        background: $appCrimson;
         color: floralwhite;
-        @include set-text-shadow($appCrimson);
-        width: 30em;
-        height: 60px;
-        left: 55px;
-        bottom: -55px;
-        border-radius: inherit;
-
-        border: goldenrod;
-        border-radius: 100px;
-        border-style: ridge;
-        border-width: medium;
-
-        &:hover {
-          box-shadow: 0px 0px 25px 20px gold;
+        box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+          rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  
+        opacity: 0.8;
+        border-radius: 45px;
+        padding: 32px;
+        margin-top: 32px;
+  
+        .header {
+          font-weight: 500;
+          font-size: 1.5rem;
+          &:before {
+            content: "\00a0 "; // adds a white space
+          }
+          &:after {
+            content: "\00a0 "; // adds a white space
+          }
+        }
+  
+        .CC-content {
+          font-size: 1.3rem;
+          line-height: 32px;
+          align-self: center;
+          overflow-y: auto;
+          @include set-text-shadow($appBlack);
+        }
+        .connect-btn {
+          align-self: flex-end;
+          background: $appBronze;
+          color: floralwhite;
+          @include set-text-shadow($appCrimson);
+          width: 30em;
+          height: 60px;
+          left: 55px;
+          bottom: -55px;
+          border-radius: inherit;
+  
+          border: goldenrod;
+          border-radius: 100px;
+          border-style: ridge;
+          border-width: medium;
+  
+          &:hover {
+            box-shadow: 0px 0px 25px 20px gold;
+          }
         }
       }
     }
+
   }
 
   .sub-wrapper {
@@ -317,100 +320,109 @@
     background: $appBlack;
   }
 
+  /*******************************
+  
+    MOBILE VIEW STYLES
+  
+  ********************************/
+
   @media only screen and (max-width: 950px) {
+    .page-content-container{
 
-    .christ-connection-container {
-      position: unset;
-      height: 80vh;
-      justify-content: space-between;
-      box-shadow: none;
-
-      .img-header {
-        box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px,
-          rgb(0 0 0 / 22%) 0px 10px 10px;
-      }
-      .christ-connection {
-        position: relative;
-        height: fit-content;
-        width: 95%;
-        padding: 16px;
-        border-radius: 32px;
-
-        .CC-content {
-          font-size: 1rem;
+      .christ-connection-container {
+        position: unset;
+        height: 80vh;
+        justify-content: space-between;
+        box-shadow: none;
+  
+        .img-header {
+          box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px,
+            rgb(0 0 0 / 22%) 0px 10px 10px;
         }
-        .connect-btn {
+        .christ-connection {
+          position: relative;
+          height: fit-content;
+          width: 95%;
+          padding: 16px;
+          border-radius: 32px;
+  
+          .CC-content {
+            font-size: 1rem;
+          }
+          .connect-btn {
+            position: absolute;
+            bottom: -108px;
+            font-size: 1.6rem;
+            width: 10em;
+            // to center an absolutely position element
+            left: 0;
+            right: 0;
+            margin: auto;
+  
+            animation-name: btn-pulse;
+            animation-duration: 850ms;
+            animation-delay: 0.2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-out;
+          }
+        }
+      }
+  
+      .sub-wrapper {
+        padding: 8px;
+        margin-top: 135px;
+        flex-direction: column-reverse;
+        height: fit-content;
+        width: 100%;
+        background: floralwhite;
+        border-radius: 4px;
+        mat-divider {
+          display: none;
+        }
+        .content-container {
+          width: 100%;
+          height: fit-content;
+          overflow: none;
+        }
+        .img-container {
+          width: 100%;
+          margin-bottom: 32px;
+        }
+      }
+      .connect-info {
+        background: floralwhite;
+        .circle-container {
+          .text {
+            font-size: 1rem;
+          }
+        }
+      }
+      .past-lesson-summary-overlay {
+        a {
+          display: flex;
+          font-weight: bold;
+          color: gold;
+          font-size: 3rem;
           position: absolute;
-          bottom: -108px;
-          font-size: 1.6rem;
-          width: 10em;
-          // to center an absolutely position element
-          left: 0;
-          right: 0;
-          margin: auto;
-
-          animation-name: btn-pulse;
-          animation-duration: 850ms;
-          animation-delay: 0.2s;
-          animation-iteration-count: infinite;
-          animation-timing-function: ease-out;
+        }
+      }
+      .past-lessons-container {
+        background-image: url("../../../assets/lamp-mobile.png");
+        height: 950vh;
+  
+        .horizontal-scroll-wrapper {
+          top: 260px;
+        }
+      }
+  
+      .resources-container {
+        .disclaimer {
+          font-size: 0.8rem;
         }
       }
     }
 
-    .sub-wrapper {
-      padding: 8px;
-      margin-top: 135px;
-      flex-direction: column-reverse;
-      height: fit-content;
-      width: 100%;
-      background: floralwhite;
-      border-radius: 4px;
-      mat-divider {
-        display: none;
-      }
-      .content-container {
-        width: 100%;
-        height: fit-content;
-        overflow: none;
-      }
-      .img-container {
-        width: 100%;
-        margin-bottom: 32px;
-      }
     }
-    .connect-info {
-      background: floralwhite;
-      .circle-container {
-        .text {
-          font-size: 1rem;
-        }
-      }
-    }
-    .past-lesson-summary-overlay {
-      a {
-        display: flex;
-        font-weight: bold;
-        color: gold;
-        font-size: 3rem;
-        position: absolute;
-      }
-    }
-    .past-lessons-container {
-      background-image: url("../../../assets/lamp-mobile.png");
-      height: 950vh;
-
-      .horizontal-scroll-wrapper {
-        top: 260px;
-      }
-    }
-
-    .resources-container {
-      .disclaimer {
-        font-size: 0.8rem;
-      }
-    }
-  }
 
   @media only screen and (max-height: 750px) and (min-height: 600px) {
 

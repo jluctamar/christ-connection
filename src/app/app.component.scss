@@ -12,6 +12,7 @@
     // justify-content: space-between;
 
     nav-bar {
+      height: 15vh;
       // display: flex;
       // align-self: center;
       // width: 100%;
@@ -22,9 +23,7 @@
     ::ng-deep bible-study,
     ::ng-deep fellowship-page,
     ::ng-deep prayer-night {
-      height: 100vh;
-      // overflow: auto;
-      // scroll-behavior: smooth;
+      height: 85vh;
     }
 
     footer {
