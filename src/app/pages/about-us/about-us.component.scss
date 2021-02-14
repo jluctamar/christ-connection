@@ -5,7 +5,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  overflow-y: auto;
   .content-container {
     height: 100%;
     width: 70%;
@@ -15,8 +14,9 @@
     background-color: floralwhite;
     overflow: auto;
     box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px,
-      rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px,
-      rgb(0 0 0 / 9%) 0px -3px 5px;
+    rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px,
+    rgb(0 0 0 / 9%) 0px -3px 5px;
+    padding-bottom: 128px;
 
     mat-divider {
       margin-top: 64px;
@@ -94,25 +94,25 @@
           }
           &.card-one {
             .img {
-              background-image: url('../../../assets/Rachelle3.jpg');
+              background-image: url("../../../assets/Rachelle3.jpg");
               background-size: cover;
             }
           }
           &.card-two {
             .img {
-              background-image: url('../../../assets/christie.jpg');
+              background-image: url("../../../assets/christie.jpg");
               background-size: cover;
             }
           }
           &.card-three {
             .img {
-              background-image: url('../../../assets/Christine.jpg');
+              background-image: url("../../../assets/Christine.jpg");
               background-size: cover;
             }
           }
           &.card-four {
             .img {
-              background-image: url('../../../assets/jeffly1.jpg');
+              background-image: url("../../../assets/jeffly1.jpg");
               background-size: cover;
             }
           }
