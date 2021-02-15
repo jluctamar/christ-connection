@@ -20,7 +20,7 @@
 
     mat-divider {
       margin-top: 64px;
-      margin-bottom: 64x;
+      margin-bottom: 64px;
       margin-right: 80px;
     }
 
@@ -42,7 +42,7 @@
     }
 
     .mission-statement {
-      height: 100vh;
+      height: fit-content;
       display: flex;
       flex-direction: column;
       .text {

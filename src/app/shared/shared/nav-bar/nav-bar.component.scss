@@ -94,7 +94,7 @@
     right: 0px;
     top: 6em;
     position: fixed;
-    z-index: 1; // to place above overlays
+    z-index: 1; // to place above content page overlays
   }
 
   @media only screen and (max-width: 750px){
@@ -163,6 +163,12 @@
           }
         }
       }
+    }
+  }
+
+  @media only screen and (max-height: 320px) and (orientation: landscape) {
+    .passageDisplayBtn {
+     top: 3em;
     }
   }
 }
