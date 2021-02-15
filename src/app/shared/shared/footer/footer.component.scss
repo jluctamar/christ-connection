@@ -3,7 +3,7 @@
 .footer {
   display: flex;
   flex-direction: row;
-  height: 65px;
+  height: 100%;
   width: 100%;
   background: $appCrimson;
   opacity: 0.8;
@@ -68,7 +68,7 @@
   }
 
   @media only screen and (max-width: 480px) and (orientation: portrait) {
-    height: 85vh;
+    // height: 85vh;
     flex-direction: column-reverse;
     opacity: 0.9;
     .passage {
