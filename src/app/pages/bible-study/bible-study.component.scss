@@ -20,7 +20,7 @@
 
       .img-header {
         width: 100%;
-        height: 60vh;
+        height: 70vh;
         background: $appCrimson;
         background-image: url("../../../assets/bible-study-pic.png");
         background-repeat: no-repeat;
@@ -64,6 +64,7 @@
         .connect-btn {
           align-self: flex-end;
           background: $appBronze;
+          font-size: 1rem;
           color: floralwhite;
           @include set-text-shadow($appCrimson);
           width: 30em;
@@ -81,6 +82,21 @@
             box-shadow: 0px 0px 25px 20px gold;
           }
         }
+
+      }
+      
+      .connect-btn-mobile {
+        display: none;
+        background: $appBronze;
+        font-size: 1rem;
+        color: floralwhite;
+        @include set-text-shadow($appCrimson);
+
+        border: goldenrod;
+        border-radius: 100px;
+        border-style: ridge;
+        border-width: medium;
+
       }
     }
   }
@@ -330,17 +346,18 @@
   @media only screen and (max-width: 950px) {
     .page-content-container {
       .christ-connection-container {
-        position: unset;
-        height: 80vh;
+        position: relative;
+        height: 100vh;
         justify-content: space-between;
         box-shadow: none;
 
         .img-header {
+          height: 80vh;
           box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px,
             rgb(0 0 0 / 22%) 0px 10px 10px;
         }
         .christ-connection {
-          position: relative;
+          position: absolute;
           height: fit-content;
           width: 95%;
           padding: 16px;
@@ -350,21 +367,37 @@
             font-size: 1rem;
           }
           .connect-btn {
-            position: absolute;
-            bottom: -108px;
-            font-size: 1.6rem;
-            width: 10em;
-            // to center an absolutely position element
-            left: 0;
-            right: 0;
-            margin: auto;
+            display: none;
+            // position: absolute;
+            // bottom: -108px;
+            // font-size: 1.6rem;
+            // width: 10em;
+            // // to center an absolutely position element
+            // left: 0;
+            // right: 0;
+            // margin: auto;
 
-            animation-name: btn-pulse;
-            animation-duration: 850ms;
-            animation-delay: 0.2s;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-out;
+            // animation-name: btn-pulse;
+            // animation-duration: 850ms;
+            // animation-delay: 0.2s;
+            // animation-iteration-count: infinite;
+            // animation-timing-function: ease-out;
           }
+        }
+        .connect-btn-mobile {
+          display: flex;
+          justify-content: center;
+          width: 10em;
+          font-size: 1.6rem;
+          // // to center an absolutely position element
+          // left: 0;
+          // right: 0;
+          // margin: auto;   
+          animation-name: btn-pulse;
+          animation-duration: 850ms;
+          animation-delay: 0.2s;
+          animation-iteration-count: infinite;
+          animation-timing-function: ease-out;       
         }
       }
 
