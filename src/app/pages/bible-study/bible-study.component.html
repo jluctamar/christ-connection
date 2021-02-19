@@ -3,10 +3,10 @@
         <div class="christ-connection-container">
             <div class="img-header"></div>
             <div class="christ-connection" @shutterOut>
-                <p class="CC-content"> <span class="header">Christ Connection:</span>{{christConnection}}</p>
-                <button mat-raised-button matTooltip="Connect With Us 6pm Tuesdays"  matTooltipPosition="right" class="connect-btn" (click)="onZoomConnect()"> Connect </button>
+                <p class="CC-content"> <span class="header">Christ Connection:</span> {{christConnection}} <span class="cc-ref"> {{refPassage}} </span> </p>
+                <button mat-raised-button [disabled]="!activeMeeting" matTooltip="Connect With Us 6pm Tuesdays"  matTooltipPosition="right" class="connect-btn" (click)="onZoomConnect()"> Connect </button>
             </div>
-            <button mat-raised-button matTooltip="Connect With Us 6pm Tuesdays"  matTooltipPosition="right" class="connect-btn-mobile" (click)="onZoomConnect()"> Connect </button>
+            <button mat-raised-button [disabled]="!activeMeeting" matTooltip="Connect With Us 6pm Tuesdays"  matTooltipPosition="right" class="connect-btn-mobile" (click)="onZoomConnect()"> Connect </button>
         </div>
         <div class="sub-wrapper">
             
@@ -21,7 +21,7 @@
                         main point is simply this "store up your treasures in heaven" as opposed to chasing after earthly treasures that will fade away.
                         The focus of our current study is on Zacchaeus, a man who came to understand this kingdom truth well. 
                         Join us as we continue to Delve deeper into the scriptures and 
-                        learn from the story of Zacchaeus the preciousness of Gods' grace.
+                        learn from the story of Zacchaeus the preciousness of Gods' grace. 
                     </p>
 
                 </div>
@@ -36,7 +36,7 @@
         <div class="connect-info">
             <div class="circle-container">
                 <div class="text">Join Us On Zoom </div>
-                <div class="text">Tuesday Evenings at 6pm </div>
+                <div class="text">Tuesday Evenings at 6pm EST</div>
                 <div class="text">{{zoomLink}}</div>
             </div>
         </div>

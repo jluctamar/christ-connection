@@ -1,5 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import {
+  DomSanitizer,
+  SafeResourceUrl,
+  SafeUrl,
+} from '@angular/platform-browser';
 import { ShutterOutAnimation } from 'src/app/shared/shared/animations';
 
 @Component({
@@ -9,13 +13,14 @@ import { ShutterOutAnimation } from 'src/app/shared/shared/animations';
   animations: [ShutterOutAnimation],
 })
 export class BibleStudyComponent implements OnInit, OnDestroy {
-  christConnection = `Jesus' mission was to seek and save the lost. He is the One who seeks us while we 
+  christConnection = `    Jesus' mission was to seek and save the lost. He is the One who seeks us while we 
   are undeserving sinners, saves us according to His mercy through His work on the cross,
-  and delights in our hearfelt expressions of repentance.`;
+  and delights in our hearfelt expressions of repentance`;
+  refPassage = '(Luke 19:1-10).';
 
   zoomLink = 'https://us02web.zoom.us/j/2535558117';
 
-  activeMeeting: boolean;
+  activeMeeting = false;
   openLessonView = false;
   lessonURL: SafeUrl;
 
@@ -26,6 +31,8 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
     // meaning the buttons will be enabled for the two hour time slots on the given meeting day
 
     window.addEventListener('scroll', this.scroll, true); // third parameter
+
+    this.activeMeeting = this.activeMeetingCheck();
   }
 
   scroll = (event: any): void => {
@@ -46,7 +53,7 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
     } else {
       target.style.transform = 'translateX(0%)';
     }
-  }
+  };
 
   onZoomConnect(): void {
     document.location.href = this.zoomLink;
@@ -61,6 +68,21 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
 
   onClosePassageDisplay(): void {
     this.openLessonView = false;
+  }
+
+  activeMeetingCheck(): boolean {
+    let isActive;
+    const date = new Date();
+    const currDay = date.getDay(); // returns the numeric value of the day ie sunday = 0, Monday= 1, tuesday = 2 etc... 
+
+
+    // specify the day
+    isActive = ( currDay === 2 ) ? true: false;
+    return isActive;
+    
+    // TODO: specify the time range (6-8)  
+    // TODO: if both conditions are met, return true
+
   }
 
   ngOnDestroy(): void {

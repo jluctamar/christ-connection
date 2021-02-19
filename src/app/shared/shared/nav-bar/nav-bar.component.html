@@ -12,6 +12,7 @@
                 <mat-list-option class="navStyles" (click)="goToHome()"> Home </mat-list-option>
                 <mat-list-option class="navStyles" (click)= "goToBibleStudy()"> Bible Study</mat-list-option>
                 <mat-list-option class="navStyles" (click)= "goToAboutUs()"> About Us </mat-list-option>
+                <mat-list-option class="navStyles" [disabled]="!activeMeeting" (click)= "onZoomConnect()"> Connect </mat-list-option>
                 <!-- <a class="navStyles" (click)= "goToFellowship()"> Fellowship </a> -->           
                 <!-- <a class="navStyles" (click)= "goToPrayerNight()"> Prayer Night</a> -->
             </mat-selection-list>
@@ -21,6 +22,10 @@
                 <button mat-button class="action-buttons" (click)="onTogglePageMenu()">
                     <mat-icon *ngIf="!togglePageMenu" class="menu-btn">menu</mat-icon>
                     <mat-icon *ngIf="togglePageMenu"  class="close-btn" @rotate>close</mat-icon>
+                </button>
+                <button mat-button class="zoom-connect-btn" [disabled]="!activeMeeting" (click)="onZoomConnect()">
+                    <mat-icon *ngIf="activeMeeting" class="active-icon">videocam</mat-icon>
+                    <mat-icon *ngIf="!activeMeeting"  class="inactive-icon" >videocam_off</mat-icon>
                 </button>
                 <div class="page-menu" *ngIf="togglePageMenu"  @slideUpDown>
                     <mat-selection-list #navLinks class="full-page-link-wrapper" [multiple]="false">

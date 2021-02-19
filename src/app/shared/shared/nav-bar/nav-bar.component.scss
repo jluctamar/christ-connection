@@ -77,6 +77,12 @@
           text-underline-offset: 3px;
           transform: scale(2);
         }
+
+        
+        &.mat-list-item-disabled {
+          background: transparent;
+          color: gray;
+        }
       }
 
       .navStyles {
@@ -130,6 +136,12 @@
           }
           
         }
+        .zoom-connect-btn {
+          .mat-icon {
+            font-size: 32px;
+            vertical-align: top;
+          }
+        }
 
         .page-menu {
           z-index: 2;
@@ -152,7 +164,9 @@
               line-height: 4;
               font-family: "Lobster", cursive;
               @include set-text-shadow(grey);
+
             }
+
 
             mat-divider {
               margin-top: 16px;
