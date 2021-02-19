@@ -138,8 +138,9 @@
         <div class="join">
           <div class="sub-header">Connect With Us</div>
           <div class="section-one">
-            <div class="text">Join Us On Zoom (Tues. Evenings 6pm EST)</div>
-            <div class="text">{{zoomLink}}</div>
+            <div class="text">Join Us On Zoom</div>
+            <div class="text">Tuesday Evenings 6pm EST</div>
+            <a class="connect-link" [ngClass]="{'disabled': !activeMeeting}" (click)="onZoomConnect()">Connect</a>
           </div>
         </div>
      

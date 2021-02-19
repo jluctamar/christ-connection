@@ -178,6 +178,21 @@
             .text {
               margin-bottom: 8px;
             }
+
+            .connect-link {
+              text-decoration: underline;
+              text-underline-offset: 2px;
+              cursor: pointer;
+              color: $appBronze;
+              font-weight: 700 ;
+
+              &.disabled {
+                color: gray;
+                cursor: not-allowed;
+                user-select: none;
+                text-decoration: none;
+              }
+            }
           }
         }
       }

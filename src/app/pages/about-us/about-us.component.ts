@@ -6,14 +6,17 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./about-us.component.scss'],
 })
 export class AboutUsComponent implements OnInit, OnInit, OnDestroy {
+  
   zoomLink = 'https://us02web.zoom.us/j/2535558117';
-  viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+  activeMeeting = false;
 
+  viewportHeight = window.innerHeight || document.documentElement.clientHeight;
   viewportWidth = window.innerWidth || document.documentElement.clientWidth;
 
   constructor() {}
 
   ngOnInit(): void {
+    this.activeMeeting = this.activeMeetingCheck();
     window.addEventListener('scroll', this.scroll, true); // third parameter
     console.log('viewportHeight: ', this.viewportHeight);
     console.log('viewportWidth: ', this.viewportWidth);
@@ -105,6 +108,26 @@ export class AboutUsComponent implements OnInit, OnInit, OnDestroy {
     // EDGE CASE: When the app is viewed a high height resolution (ie 2000+) but minimal scrolling height (ie 100px) 
     // not all the cards will display
   };
+
+  activeMeetingCheck(): boolean {
+    let isActive;
+    const date = new Date();
+    const currDay = date.getDay(); // returns the numeric value of the day ie sunday = 0, Monday= 1, tuesday = 2 etc... 
+
+
+    // specify the day
+    isActive = ( currDay === 2 ) ? true: false;
+    return isActive;
+    
+    // TODO: specify the time range (6-8)  
+    // TODO: if both conditions are met, return true
+
+  }
+
+  onZoomConnect(): void {
+    if(!this.activeMeeting) return;
+    document.location.href = this.zoomLink;
+  }
 
   ngOnDestroy(): void {
     window.removeEventListener('scroll', this.scroll, true);
