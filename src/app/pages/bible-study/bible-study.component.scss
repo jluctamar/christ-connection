@@ -127,6 +127,7 @@
     .img-container {
       display: flex;
       flex-direction: column;
+      align-self: center;
       width: 50%;
       height: 80vh;
       padding: 16px;
@@ -358,7 +359,7 @@
   
   ********************************/
 
-  @media only screen and (max-width: 950px) {
+  @media only screen and (max-width: 767px) and (orientation: portrait) {
     .page-content-container {
       .christ-connection-container {
         position: relative;
@@ -378,26 +379,13 @@
           width: 95%;
           padding: 16px;
           border-radius: 32px;
+          margin-top: 5%;
 
           .CC-content {
             font-size: 1rem;
           }
           .connect-btn {
             display: none;
-            // position: absolute;
-            // bottom: -108px;
-            // font-size: 1.6rem;
-            // width: 10em;
-            // // to center an absolutely position element
-            // left: 0;
-            // right: 0;
-            // margin: auto;
-
-            // animation-name: btn-pulse;
-            // animation-duration: 850ms;
-            // animation-delay: 0.2s;
-            // animation-iteration-count: infinite;
-            // animation-timing-function: ease-out;
           }
         }
         .connect-btn-mobile {
@@ -423,7 +411,6 @@
         flex-direction: column-reverse;
         height: fit-content;
         width: 100%;
-        // background: floralwhite;
         border-radius: 4px;
         mat-divider {
           display: none;
@@ -476,13 +463,90 @@
     }
   }
 
-  @media only screen and (max-height: 750px) and (min-height: 600px) {
-    .past-lessons-container {
-      .horizontal-scroll-wrapper {
-        top: 200px;
+  @media only screen and (max-width: 767px) and (orientation: landscape ) {
+    .page-content-container {
+      .christ-connection-container {
+        position: relative;
+        height: 100vh;
+        justify-content: space-between;
+        box-shadow: none;
+
+        .img-header {
+          height: 80vh;
+          background-attachment: unset;
+          box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px,
+            rgb(0 0 0 / 22%) 0px 10px 10px;
+        }
+        
+        .christ-connection {
+          position: absolute;
+          height: fit-content;
+          width: 95%;
+          padding: 16px;
+          border-radius: 32px;
+          margin-top: 5%;
+          
+          .CC-content {
+            font-size: 1rem;
+          }
+          .connect-btn {
+            display: none;
+          }
+        }
+        .connect-btn-mobile {
+          display: flex;
+          justify-content: center;
+          width: 10em;
+          font-size: 1.6rem;
+          // // to center an absolutely position element
+          // left: 0;
+          // right: 0;
+          // margin: auto;   
+          animation-name: btn-pulse;
+          animation-duration: 850ms;
+          animation-delay: 0.2s;
+          animation-iteration-count: infinite;
+          animation-timing-function: ease-out;       
+        }
       }
+
+      .sub-wrapper {
+        padding: 8px;
+        margin-top: 135px;
+        flex-direction: column-reverse;
+        height: fit-content;
+        width: 100%;
+        border-radius: 4px;
+        mat-divider {
+          display: none;
+        }
+        .content-container {
+          width: 100%;
+          height: fit-content;
+          overflow: none;
+        }
+        .img-container {
+          width: 100%;
+          margin-bottom: 32px;
+
+          .current-lesson-img { 
+            background-image: url('../../../assets/jesus-and-zaccheus-mobile.png');
+          }
+
+        }
+      }
+
     }
-  }
+   }
+
+
+  // @media only screen and (max-height: 750px) and (min-height: 600px) {
+  //   .past-lessons-container {
+  //     .horizontal-scroll-wrapper {
+  //       top: 200px;
+  //     }
+  //   }
+  // }
 
   // @media only screen and (max-height: 320px) and (orientation: landscape) {
   //   .past-lessons-container {

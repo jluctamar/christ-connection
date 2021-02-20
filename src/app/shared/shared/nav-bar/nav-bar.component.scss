@@ -78,7 +78,6 @@
           transform: scale(2);
         }
 
-        
         &.mat-list-item-disabled {
           background: transparent;
           color: gray;
@@ -103,7 +102,7 @@
     z-index: 1; // to place above content page overlays
   }
 
-  @media only screen and (max-width: 750px){
+  @media only screen and (max-width: 768px) {
     mat-toolbar {
       flex-direction: row-reverse;
 
@@ -112,7 +111,7 @@
           font-size: 1.5rem;
         }
 
-        .img-circle{
+        .img-circle {
           display: none;
         }
       }
@@ -124,17 +123,16 @@
         display: flex !important;
         .action-buttons {
           background: transparent;
-          color: $appBlack;   
-          z-index: 3;  // to sit atop the page-menu div
+          color: $appBlack;
+          z-index: 3; // to sit atop the page-menu div
           .mat-icon {
-            font-size: 2.0rem;
+            font-size: 2rem;
             vertical-align: top;
             &.close-btn {
               height: 40px;
               width: 40px;
             }
           }
-          
         }
         .zoom-connect-btn {
           .mat-icon {
@@ -164,9 +162,7 @@
               line-height: 4;
               font-family: "Lobster", cursive;
               @include set-text-shadow(grey);
-
             }
-
 
             mat-divider {
               margin-top: 16px;
@@ -180,9 +176,19 @@
     }
   }
 
-  @media only screen and (max-height: 320px) and (orientation: landscape) {
+  @media only screen and (min-width: 769px) and (max-width: 850px) {
+    mat-toolbar {
+      .main-header {
+        .title {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-height: 524px) and (orientation: landscape) {
     .passageDisplayBtn {
-     top: 3em;
+      top: 3em;
     }
   }
 }
