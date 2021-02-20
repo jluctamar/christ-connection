@@ -86,13 +86,10 @@
             background: gray;
             color: floralwhite;
             border: $appCrimson;
-            
           }
-
         }
-
       }
-      
+
       .connect-btn-mobile {
         display: none;
         background: $appBronze;
@@ -111,7 +108,6 @@
           border: $appCrimson;
           animation: none;
         }
-
       }
     }
   }
@@ -396,12 +392,12 @@
           // // to center an absolutely position element
           // left: 0;
           // right: 0;
-          // margin: auto;   
+          // margin: auto;
           animation-name: btn-pulse;
           animation-duration: 850ms;
           animation-delay: 0.2s;
           animation-iteration-count: infinite;
-          animation-timing-function: ease-out;       
+          animation-timing-function: ease-out;
         }
       }
 
@@ -431,7 +427,6 @@
           height: 225px;
           .text {
             font-size: 1rem;
-            
           }
         }
       }
@@ -444,14 +439,24 @@
           position: absolute;
         }
       }
+
       .past-lessons-container {
-        background-image: url("../../../assets/lamp-mobile.png");
-        height: 1350vh;
+       // background-image: url("../../../assets/lamp-mobile.png");
+        height: 80vh;
         background-attachment: unset;
-        background-size: contain;
+        background-size: cover;
+        background-position: top;
 
         .horizontal-scroll-wrapper {
-          top: 40px;
+          top: 0px;
+          overflow-x: auto;
+          .lesson-wrapper {
+            transform: none !important; // removes horizontal scroll effect
+            .lesson {
+              width: 300px;
+              height: 300px;
+            }
+          }
         }
       }
 
@@ -463,7 +468,7 @@
     }
   }
 
-  @media only screen and (max-width: 767px) and (orientation: landscape ) {
+  @media only screen and (max-width: 767px) and (orientation: landscape) {
     .page-content-container {
       .christ-connection-container {
         position: relative;
@@ -477,7 +482,7 @@
           box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px,
             rgb(0 0 0 / 22%) 0px 10px 10px;
         }
-        
+
         .christ-connection {
           position: absolute;
           height: fit-content;
@@ -485,7 +490,7 @@
           padding: 16px;
           border-radius: 32px;
           margin-top: 5%;
-          
+
           .CC-content {
             font-size: 1rem;
           }
@@ -501,12 +506,12 @@
           // // to center an absolutely position element
           // left: 0;
           // right: 0;
-          // margin: auto;   
+          // margin: auto;
           animation-name: btn-pulse;
           animation-duration: 850ms;
           animation-delay: 0.2s;
           animation-iteration-count: infinite;
-          animation-timing-function: ease-out;       
+          animation-timing-function: ease-out;
         }
       }
 
@@ -529,31 +534,108 @@
           width: 100%;
           margin-bottom: 32px;
 
-          .current-lesson-img { 
-            background-image: url('../../../assets/jesus-and-zaccheus-mobile.png');
+          .current-lesson-img {
+            background-image: url("../../../assets/jesus-and-zaccheus-mobile.png");
           }
-
         }
       }
 
+      .past-lessons-container {
+        // background-image: url("../../../assets/lamp-mobile.png");
+        height: 115vh;
+        background-attachment: unset;
+        background-size: cover;
+
+        .horizontal-scroll-wrapper {
+          top: 0px;
+          overflow-x: auto;
+          .lesson-wrapper {
+            transform: none !important; // removes horizontal scroll effect
+            .lesson {
+              width: 300px;
+              height: 300px;
+            }
+          }
+        }
+      }
     }
-   }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .page-content-container {
+      .christ-connection-container {
+        position: relative;
+        box-shadow: none;
+
+        .img-header {
+          background-attachment: unset;
+          box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px,
+          rgb(0 0 0 / 22%) 0px 10px 10px;
+        }
+        .christ-connection {
+          position: relative;
+          width: 80%;
+        }
+        
+      }
 
 
-  // @media only screen and (max-height: 750px) and (min-height: 600px) {
-  //   .past-lessons-container {
-  //     .horizontal-scroll-wrapper {
-  //       top: 200px;
-  //     }
-  //   }
-  // }
+      .sub-wrapper {
+        padding: 8px;
+        margin-top: 135px;
+        flex-direction: column-reverse;
+        height: fit-content;
+        width: 100%;
+        border-radius: 4px;
+        mat-divider {
+          display: none;
+        }
+        .content-container {
+          width: 100%;
+          height: fit-content;
+          overflow: none;
+        }
+        .img-container {
+          width: 100%;
+          margin-bottom: 32px;
+        }
+      }
+    }
+  }
 
-  // @media only screen and (max-height: 320px) and (orientation: landscape) {
-  //   .past-lessons-container {
-  //     height: 1650vh;
-  //     .horizontal-scroll-wrapper {
-  //       top: 0px;
-  //     }
-  //   }
-  // }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .page-content-container {
+
+      .past-lessons-container {
+        height: 60vh;
+        background-size: contain;
+        background-attachment: unset;
+        background-position: top;
+        .horizontal-scroll-wrapper {
+          overflow-x: auto;
+          .lesson-wrapper {
+            transform: none !important; // removes horizontal scroll effect
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape)  {
+    .page-content-container {
+
+      .past-lessons-container {
+        height: 100vh;
+        background-size: cover;
+        background-attachment: unset;
+        background-position: top;
+        .horizontal-scroll-wrapper {
+          top: 250px;
+          overflow-x: auto;
+          .lesson-wrapper {
+            transform: none !important; // removes horizontal scroll effect
+          }
+        }
+      }
+    }
+  }
 }

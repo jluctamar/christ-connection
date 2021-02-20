@@ -42,4 +42,19 @@
       height: 85vh;
     }
   }
+
+  @media only screen and (min-width: 768px) and (max-width: 10240px) {
+    nav-bar {
+      height: 12vh !important;
+    }
+
+    ::ng-deep about-us,
+    ::ng-deep home-page,
+    ::ng-deep bible-study,
+    ::ng-deep fellowship-page,
+    ::ng-deep prayer-night {
+      height: 88vh !important;
+    }
+  }
+
 }
