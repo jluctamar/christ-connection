@@ -7,6 +7,7 @@
                 <button mat-raised-button [disabled]="!activeMeeting" matTooltip="Connect With Us 6pm Tuesdays"  matTooltipPosition="right" class="connect-btn" (click)="onZoomConnect()"> Connect </button>
             </div>
             <button mat-raised-button [disabled]="!activeMeeting" matTooltip="Connect With Us 6pm Tuesdays"  matTooltipPosition="right" class="connect-btn-mobile" (click)="onZoomConnect()"> Connect </button>
+            <div *ngIf="!activeMeeting" class="connect-btn-mobile-info">Come Back Tuesday 6pm EST</div>
         </div>
         <div class="sub-wrapper">
             
