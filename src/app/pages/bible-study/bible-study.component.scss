@@ -470,8 +470,8 @@
           .lesson-wrapper {
             transform: none !important; // removes horizontal scroll effect
             .lesson {
-              width: 300px;
-              height: 300px;
+              width: 200px;
+              height: 200px;
             }
           }
         }
@@ -582,8 +582,8 @@
           .lesson-wrapper {
             transform: none !important; // removes horizontal scroll effect
             .lesson {
-              width: 300px;
-              height: 300px;
+              width: 200px;
+              height: 200px;
             }
           }
         }
@@ -635,7 +635,7 @@
     .page-content-container {
       .past-lessons-container {
         height: 60vh;
-        background-size: contain;
+        background-size: cover;
         background-attachment: unset;
         background-position: top;
         .horizontal-scroll-wrapper {
