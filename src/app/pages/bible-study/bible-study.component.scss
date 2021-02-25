@@ -458,13 +458,14 @@
       }
 
       .past-lessons-container {
-        // background-image: url("../../../assets/lamp-mobile.png");
+        background-image: url("../../../assets/lamp-4.png");
         height: 80vh;
         background-attachment: unset;
         background-size: cover;
-        background-position: top;
+        background-position: right;
 
         .horizontal-scroll-wrapper {
+          position: unset;
           top: 0px;
           overflow-x: auto;
           .lesson-wrapper {
@@ -571,12 +572,13 @@
       }
 
       .past-lessons-container {
-        // background-image: url("../../../assets/lamp-mobile.png");
+        background-image: url("../../../assets/lamp-4.png");
         height: 115vh;
         background-attachment: unset;
         background-size: cover;
 
         .horizontal-scroll-wrapper {
+          position: unset;
           top: 0px;
           overflow-x: auto;
           .lesson-wrapper {
