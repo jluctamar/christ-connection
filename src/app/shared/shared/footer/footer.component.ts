@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit {
   passage: passage = {reference: "", text: ""};
   test: string = "";
   passageSelectionArr = ["Genesis 3:20", "Genesis 1:1-3", "Genesis 2:7", "1 John 3:4", "Ephesians 2:10", "2 Timothy 3:16", "Psalms 119:9", "1 timothy 1:15",
-    "2 Corinthians 3:17", "Isaiah 55:6-7", "John 3:16", "John 5:24","John 1:1", "John 1:12", "John 3:5", "Matthew 11:28", "Isaiah 41:10"];
+    "2 Corinthians 3:17", "Isaiah 55:6-7", "John 3:16", "John 5:24","John 1:1", "John 1:12", "John 3:5", "Matthew 11:28", "Isaiah 41:10", "Luke 19:10"];
 
   constructor(private verseService: VerseService) {}
 
