@@ -13,10 +13,20 @@ import { ShutterOutAnimation } from 'src/app/shared/shared/animations';
   animations: [ShutterOutAnimation],
 })
 export class BibleStudyComponent implements OnInit, OnDestroy {
-  christConnection = `    Jesus' mission was to seek and save the lost. He is the One who seeks us while we 
-  are undeserving sinners, saves us according to His mercy through His work on the cross,
-  and delights in our hearfelt expressions of repentance`;
-  refPassage = '(Luke 19:1-10).';
+  christConnection = `    Jesus is the Sower who scattered the seed (God’s Word)
+  through his ministry on earth. Today, He continues to proclaim the gospel through his disciples,
+  and the gospel continues to bear fruit among those who receive the message.`;
+
+  refPassage = '(Mark 4:1-9, 14-20)';
+  currLessonSubject = 'The Sower and the Soils';
+  currLessonSummary = `The good news of the Gospel of Jesus Christ is the preemptive love of God (1 John 4:10)
+  to pay the price of our sins by offering his son’s life as the perfect payment on our behalf.
+  Those who accept this truth walk in the blessed assurance that they have been made right with God.
+  But it does not end there, God calls those whom He has redeemed to live, in a still darkened and rebellious world,
+  as a light to point others to this gracious gift of salvation.
+  God call us to spread the good news just as a sower spreads seed upon his field, far and wide with reckless abandon,
+  trusting that God will bring good fruit from the gospel. Join us as we delve into the parable of the Sower and the Soils,
+  where we learn from Jesus about the different types of ways people can respond to the message of the gospel.`;
 
   zoomLink = 'https://us02web.zoom.us/j/2535558117';
 
@@ -73,16 +83,14 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
   activeMeetingCheck(): boolean {
     let isActive;
     const date = new Date();
-    const currDay = date.getDay(); // returns the numeric value of the day ie sunday = 0, Monday= 1, tuesday = 2 etc... 
-
+    const currDay = date.getDay(); // returns the numeric value of the day ie sunday = 0, Monday= 1, tuesday = 2 etc...
 
     // specify the day
-    isActive = ( currDay === 2 ) ? true: false;
+    isActive = currDay === 2 ? true : false;
     return isActive;
-    
-    // TODO: specify the time range (6-8)  
-    // TODO: if both conditions are met, return true
 
+    // TODO: specify the time range (6-8)
+    // TODO: if both conditions are met, return true
   }
 
   ngOnDestroy(): void {

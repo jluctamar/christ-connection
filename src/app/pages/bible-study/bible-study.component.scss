@@ -136,7 +136,7 @@
       box-shadow: rgb(204 219 232) 3px 3px 6px 0px inset,
         rgb(255 255 255 / 50%) -3px -3px 6px 1px inset;
       .current-lesson-img {
-        background-image: url("../../../assets/jesus-and-zaccheus.png");
+        background-image: url("../../../assets/sower.png");
         background-size: cover;
         width: 100%;
         height: 90%;
@@ -325,6 +325,11 @@
           .passage {
             text-align: center;
           }
+        }
+        .lesson-background-zaccheaus {
+          background-image: url("../../../assets/jesus-and-zaccheus.png");
+          background-repeat: no-repeat;
+          background-size: cover;
         }
         .lesson-background-gospel-series {
           background-image: url("../../../assets/gospel-series.png");
@@ -566,7 +571,7 @@
           margin-bottom: 32px;
 
           .current-lesson-img {
-            background-image: url("../../../assets/jesus-and-zaccheus-mobile.png");
+            background-image: url("../../../assets/sower.png");
           }
         }
       }

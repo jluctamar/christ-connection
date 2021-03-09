@@ -14,23 +14,16 @@
             <div class="content-container">
                 
                 <div class="current-lesson"> 
-                    <div class="header">Current Lesson: Jesus and Zacchaeus (Luke 19: 1-10)</div>
+                    <div class="header">Current Lesson: {{currLessonSubject}}{{refPassage}}</div>
                     <mat-divider class="horizontal-divider" ></mat-divider>
-                    <p>God calls us to express our repentance through exuburant generosity. This is made clear when Jesus compares the 
-                        kingdom of God as a treasure found in a field, so precious that the man who finds it is willing to give all he has 
-                        to keep it (Matthew 13:44). Or consider Jesus' exhortation in Matthew 10: 5-8 "freely as you have recieved, freely give". The 
-                        main point is simply this "store up your treasures in heaven" as opposed to chasing after earthly treasures that will fade away.
-                        The focus of our current study is on Zacchaeus, a man who came to understand this kingdom truth well. 
-                        Join us as we continue to Delve deeper into the scriptures and 
-                        learn from the story of Zacchaeus the preciousness of Gods' grace. 
-                    </p>
+                    <p>{{currLessonSummary}}</p>
 
                 </div>
             </div>
             <mat-divider vertical="true" class="vert-divider" ></mat-divider>
             <div class="img-container">
                 <div class="current-lesson-img"></div>
-                <div class="caption">Luke 19: 1-10</div>
+                <div class="caption">{{refPassage}}</div>
             </div>
 
         </div>
@@ -54,11 +47,11 @@
         <div class="past-lessons-container">
             <div class="horizontal-scroll-wrapper">
                 <div class="lesson-wrapper">
-                    <div class="lesson lesson-background-gospel-series" (click)="onViewLesson('https://drive.google.com/file/d/1nOEc272FifiWoO14-u99MMoSSuYytQIO/preview')">
+                    <div class="lesson lesson-background-zaccheaus" (click)="onViewLesson('https://drive.google.com/file/d/1nOEc272FifiWoO14-u99MMoSSuYytQIO/preview')">
                         <div class="title ">Jesus ignores opposition in order to stay with Zacchaeus</div>
                         <div class="passage">Luke 19:5-7</div>
                     </div>
-                    <div class="lesson lesson-background-gospel-series" (click)="onViewLesson('https://drive.google.com/file/d/15S0DFGgGAPRCHWIGsiST2AXfB6xD8aiI/preview')">
+                    <div class="lesson lesson-background-zaccheaus" (click)="onViewLesson('https://drive.google.com/file/d/15S0DFGgGAPRCHWIGsiST2AXfB6xD8aiI/preview')">
                         <div class="title ">Zacchaeus overcomes obstacles in order to see Jesus</div>
                         <div class="passage">Luke 19:1-4</div>
                     </div>
