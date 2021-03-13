@@ -287,65 +287,70 @@
       width: 100%;
       overflow: hidden;
 
-      .lesson-wrapper {
-        display: flex;
-        width: fit-content;
-        .lesson {
+
+      .wheel-scroll-wrapper {
+        
+        .lesson-wrapper {
           display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          padding: 16px;
-          width: 320px;
-          height: 320px;
-          margin: 16px;
-          border-radius: 32px;
-          box-shadow: -15px 24px 31px -20px rgba(127, 132, 145, 1);
+          width: fit-content;
 
-          // Set background image
-          background: $appBronze;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-
-          color: floralwhite;
-          @include set-text-shadow($appBronze);
-          font-size: 1.2rem;
-          cursor: pointer;
-
-          &:hover {
-            box-shadow: inset -13px -8px 104px -25px rgba(28, 157, 255, 0.87);
+          .lesson {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            width: 320px;
+            height: 320px;
+            margin: 16px;
+            border-radius: 32px;
+            box-shadow: -15px 24px 31px -20px rgba(127, 132, 145, 1);
+  
+            // Set background image
+            background: $appBronze;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+  
+            color: floralwhite;
+            @include set-text-shadow($appBronze);
+            font-size: 1.2rem;
+            cursor: pointer;
+  
+            &:hover {
+              box-shadow: inset -13px -8px 104px -25px rgba(28, 157, 255, 0.87);
+            }
+  
+            .title {
+              text-align: center;
+              margin-bottom: 16px;
+              line-height: 24px;
+            }
+            .passage {
+              text-align: center;
+            }
           }
-
-          .title {
-            text-align: center;
-            margin-bottom: 16px;
-            line-height: 24px;
+          .notes-background {
+            background-image: url("../../../assets/note-taking.png");
+            background-repeat: no-repeat;
+            background-size: cover;
           }
-          .passage {
-            text-align: center;
+          .lesson-background-zaccheaus {
+            background-image: url("../../../assets/jesus-and-zaccheus.png");
+            background-repeat: no-repeat;
+            background-size: cover;
           }
-        }
-        .notes-background {
-          background-image: url("../../../assets/note-taking.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-        .lesson-background-zaccheaus {
-          background-image: url("../../../assets/jesus-and-zaccheus.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-        .lesson-background-gospel-series {
-          background-image: url("../../../assets/gospel-series.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-
-        .lesson-background-exodus-series {
-          background-image: url("../../../assets/exodus-series.png");
-          background-repeat: no-repeat;
-          background-size: cover;
+          .lesson-background-gospel-series {
+            background-image: url("../../../assets/gospel-series.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+  
+          .lesson-background-exodus-series {
+            background-image: url("../../../assets/exodus-series.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
         }
       }
     }
@@ -478,11 +483,50 @@
           position: unset;
           top: 0px;
           overflow-x: auto;
-          .lesson-wrapper {
-            transform: none !important; // removes horizontal scroll effect
-            .lesson {
-              width: 200px;
-              height: 200px;
+
+          /*WHEEL SCROLL CODE *************************/
+          display: flex;
+          width: 100%;
+          height: 400px;
+          justify-content: center;
+          overflow-x: auto;
+          overflow-y: hidden;
+          position: relative;
+
+          .wheel-scroll-wrapper {
+            display: flex;
+            position: absolute;
+            width: 200vw;
+
+            .lesson-wrapper {
+            // transform: none !important; // removes horizontal scroll effect
+            
+              /*WHEEL SCROLL CODE *************************/
+              position: relative;
+              width: 400px;
+              height: 400px;
+              top: 415px;
+              left: 0;
+              right: 0;
+              margin: auto;
+              align-items: center;
+              justify-content: center;            
+              
+
+
+
+              .lesson {
+                width: 170px;
+                height: 170px;
+                margin: 0px;
+                
+                /*WHEEL SCROLL CODE *************************/
+                position: absolute;
+                top:50%;
+                left: 50%;
+                transform: translate(-50%,-50%);              
+                border-radius: 50%;
+              }
             }
           }
         }
@@ -591,11 +635,13 @@
           position: unset;
           top: 0px;
           overflow-x: auto;
-          .lesson-wrapper {
-            transform: none !important; // removes horizontal scroll effect
-            .lesson {
-              width: 200px;
-              height: 200px;
+        .wheel-scroll-wrapper {
+            .lesson-wrapper {
+              transform: none !important; // removes horizontal scroll effect
+              .lesson {
+                width: 170px;
+                height: 170px;
+              }
             }
           }
         }

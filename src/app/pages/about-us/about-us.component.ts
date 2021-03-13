@@ -6,7 +6,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./about-us.component.scss'],
 })
 export class AboutUsComponent implements OnInit, OnInit, OnDestroy {
-  
+
   zoomLink = 'https://us02web.zoom.us/j/2535558117';
   activeMeeting = false;
 
@@ -35,54 +35,54 @@ export class AboutUsComponent implements OnInit, OnInit, OnDestroy {
     const thirdCard = document.querySelector(' .card-three') as HTMLElement;
     const fourthCard = document.querySelector('.card-four') as HTMLElement;
 
-    // LOGS FOR DEBUGGING
-    console.group('OffsetTop');
-    console.log(
-      'Scroll Value(Parent):',
-      scrollVal,
-      '----',
-      parentCoords.offsetTop
-    );
-    console.log(
-      'Scroll Value(1):',
-      scrollVal,
-      '----',
-      firstCard.offsetTop,
-      '----',
-      firstCard.offsetTop - parentCoords.offsetTop
-    );
-    console.log(
-      'Scroll Value:(2)',
-      scrollVal,
-      '----',
-      secCard.offsetTop,
-      '----',
-      secCard.offsetTop - parentCoords.offsetTop
-    );
-    console.log(
-      'Scroll Value:(3)',
-      scrollVal,
-      '----',
-      thirdCard.offsetTop,
-      '----',
-      thirdCard.offsetTop - parentCoords.offsetTop
-    );
-    console.log(
-      'Scroll Value:(4)',
-      scrollVal,
-      '----',
-      fourthCard.offsetTop,
-      '----',
-      fourthCard.offsetTop - parentCoords.offsetTop
-    );
-    console.groupEnd();
-    console.group('OffsetParent');
-    console.log('Scroll Value(1):', scrollVal, '----', firstCard.offsetParent);
-    console.log('Scroll Value:(2)', scrollVal, '----', secCard.offsetParent);
-    console.log('Scroll Value:(3)', scrollVal, '----', thirdCard.offsetParent);
-    console.log('Scroll Value:(4)', scrollVal, '----', fourthCard.offsetParent);
-    console.groupEnd();
-    console.log('---------------------------------');
+    // // LOGS FOR DEBUGGING
+    // console.group('OffsetTop');
+    // console.log(
+    //   'Scroll Value(Parent):',
+    //   scrollVal,
+    //   '----',
+    //   parentCoords.offsetTop
+    // );
+    // console.log(
+    //   'Scroll Value(1):',
+    //   scrollVal,
+    //   '----',
+    //   firstCard.offsetTop,
+    //   '----',
+    //   firstCard.offsetTop - parentCoords.offsetTop
+    // );
+    // console.log(
+    //   'Scroll Value:(2)',
+    //   scrollVal,
+    //   '----',
+    //   secCard.offsetTop,
+    //   '----',
+    //   secCard.offsetTop - parentCoords.offsetTop
+    // );
+    // console.log(
+    //   'Scroll Value:(3)',
+    //   scrollVal,
+    //   '----',
+    //   thirdCard.offsetTop,
+    //   '----',
+    //   thirdCard.offsetTop - parentCoords.offsetTop
+    // );
+    // console.log(
+    //   'Scroll Value:(4)',
+    //   scrollVal,
+    //   '----',
+    //   fourthCard.offsetTop,
+    //   '----',
+    //   fourthCard.offsetTop - parentCoords.offsetTop
+    // );
+    // console.groupEnd();
+    // console.group('OffsetParent');
+    // console.log('Scroll Value(1):', scrollVal, '----', firstCard.offsetParent);
+    // console.log('Scroll Value:(2)', scrollVal, '----', secCard.offsetParent);
+    // console.log('Scroll Value:(3)', scrollVal, '----', thirdCard.offsetParent);
+    // console.log('Scroll Value:(4)', scrollVal, '----', fourthCard.offsetParent);
+    // console.groupEnd();
+    // console.log('---------------------------------');
 
     // determines when the about cards will fade in, in relation to cards position on the screen
     if ((scrollVal > (firstCard.offsetTop - parentCoords.offsetTop)) && (scrollVal < (secCard.offsetTop - parentCoords.offsetTop))) {
@@ -112,20 +112,19 @@ export class AboutUsComponent implements OnInit, OnInit, OnDestroy {
   activeMeetingCheck(): boolean {
     let isActive;
     const date = new Date();
-    const currDay = date.getDay(); // returns the numeric value of the day ie sunday = 0, Monday= 1, tuesday = 2 etc... 
+    const currDay = date.getDay(); // returns the numeric value of the day ie sunday = 0, Monday= 1, tuesday = 2 etc...
 
 
     // specify the day
-    isActive = ( currDay === 2 ) ? true: false;
+    isActive = ( currDay === 2 ) ? true : false;
     return isActive;
-    
-    // TODO: specify the time range (6-8)  
+    // TODO: specify the time range (6-8)
     // TODO: if both conditions are met, return true
 
   }
 
   onZoomConnect(): void {
-    if(!this.activeMeeting) return;
+    if (!this.activeMeeting){ return; };
     document.location.href = this.zoomLink;
   }
 

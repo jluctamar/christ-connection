@@ -1,9 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { leadingComment } from '@angular/compiler';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import {
   DomSanitizer,
   SafeResourceUrl,
   SafeUrl,
 } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { ShutterOutAnimation } from 'src/app/shared/shared/animations';
 
 @Component({
@@ -34,15 +36,20 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
   openLessonView = false;
   lessonURL: SafeUrl;
 
-  constructor(private domSanitizer: DomSanitizer) {}
+  lessonContainer: HTMLElement;
+  viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
+  constructor(private domSanitizer: DomSanitizer, private router: Router) {}
 
   ngOnInit(): void {
     // Todo: Disable the zoom connect buttons on the basis of the designated meeting date and time
     // meaning the buttons will be enabled for the two hour time slots on the given meeting day
 
-    window.addEventListener('scroll', this.scroll, true); // third parameter
-
+    window.addEventListener('scroll', 
+    (this.viewportWidth < 768 && this.isPortrait() ? this.wheelScroll : this.scroll) , true); // third parameter
+    
     this.activeMeeting = this.activeMeetingCheck();
+    this.onLoad(); //Set up for wheel scroll
   }
 
   scroll = (event: any): void => {
@@ -64,6 +71,87 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
       target.style.transform = 'translateX(0%)';
     }
   };
+
+  wheelScroll = (event: any): void => {    
+    if (event.srcElement.scrollLeft === 0) {
+      this.lessonContainer.style.transform = 'translateX(0%) rotate(270deg)'; // Set initial wheel position to the worksheet
+    } else {
+      this.lessonContainer.style.transform =
+        'translateX(' +
+        event.srcElement.scrollLeft * 0.25 +
+        '%) rotate(' +
+        event.srcElement.scrollLeft * 0.4 +
+        'deg)';
+    }
+
+    this.lessonContainer.childNodes.forEach((elem) => {
+      let htmlElem = elem as HTMLElement;
+      event.srcElement.scrollLeft === 0
+        ? (htmlElem.style.transform = 'translate(-50%, -50%) rotate(90deg)')
+        : (htmlElem.style.transform =
+            'translate(-50%, -50%) rotate(' +
+            -1.0 * (event.srcElement.scrollLeft * 0.4) +
+            'deg)'); // keeps the child elements from rotating upside down by spining them in the opposite direction of parent element
+    });
+  };
+
+
+  @HostListener('window:orientationchange', ['$event'])
+  onOrientationChange(event) {
+    this.router.navigateByUrl('/BibleStudyComponent', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/bible-study']);
+  }); 
+  }
+
+  onLoad(): void {
+    this.lessonContainer = document.querySelector('.lesson-wrapper');
+    // console.log('########', this.lessonContainer.childNodes);
+    // console.log('########==>', window.getComputedStyle(this.lessonContainer).width);
+    // console.log('########=>', this.lessonContainer.clientWidth);
+    // console.log('########=>', this.lessonContainer.offsetWidth);
+    // console.log('######## Center X', this.getWheelCenterX());
+    // console.log('######## Center Y', this.getWheelCenterY());
+    this.positionDiv();
+  }
+
+  isPortrait(): boolean {
+    return (window.innerHeight || document.documentElement.clientHeight) > (window.innerWidth || document.documentElement.clientWidth)
+  }
+
+  getWheelCenterX(): number {
+    return (
+      parseFloat(window.getComputedStyle(this.lessonContainer).width) / 2.0
+    );
+  }
+  getWheelCenterY(): number {
+    return (
+      parseFloat(window.getComputedStyle(this.lessonContainer).height) / 2.0
+    );
+  }
+
+  getLessonCoordinatesX(theta, radius): number {
+    return Math.cos(theta) * radius;
+  }
+  getLessonCoordinatesY(theta, radius): number {
+    return Math.sin(theta) * radius;
+  }
+
+  positionDiv(): void {
+    let pi = Math.PI;
+    let theta = 360 / this.lessonContainer.childNodes.length;
+    let radians = theta * (pi / 180);
+
+    for (let i = 0; i < this.lessonContainer.childNodes.length; i++) {
+      let div = this.lessonContainer.childNodes[i] as HTMLElement;
+      let xCoord =
+        this.getWheelCenterX() + this.getLessonCoordinatesX(radians * i, 450);
+      let yCoord =
+        this.getWheelCenterY() - this.getLessonCoordinatesY(radians * i, 450);
+      // console.log('######## lesson', i, 'coord:', xCoord + ',' + yCoord);
+      div.style.left = xCoord.toString() + 'px';
+      div.style.top = yCoord.toString() + 'px';
+    }
+  }
 
   onZoomConnect(): void {
     document.location.href = this.zoomLink;

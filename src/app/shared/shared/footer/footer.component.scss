@@ -63,19 +63,18 @@
       border-left-style: groove;
       border-left-width: thick;
       padding-left: 8px;
-
     }
   }
 
   @media only screen and (max-width: 480px) and (orientation: portrait) {
     // height: 85vh;
     flex-direction: column-reverse;
-    opacity: 0.9;
+    opacity: 0.95;
     .passage {
       padding: 8px;
       .text {
         line-height: 1.5;
-        font-size: 2.0rem;
+        font-size: 2rem;
       }
     }
     .ref-container {
@@ -88,6 +87,20 @@
         font-size: 1.1rem;
       }
     }
+  }
 
+  @media only screen and (max-width: 767px) and (orientation: landscape) {
+    opacity: 0.95;
+    .passage {
+      .text {
+        align-items: center;
+      }
+    }
+    .ref-container {
+      .reference {
+        border: none;
+        align-self: center;
+      }
+    }
   }
 }
