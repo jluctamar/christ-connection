@@ -72,7 +72,7 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
     }
   };
 
-  wheelScroll = (event: any): void => {    
+  wheelScroll = (event: any): void => {
     if (event.srcElement.scrollLeft === 0) {
       this.lessonContainer.style.transform = 'translateX(0%) rotate(270deg)'; // Set initial wheel position to the worksheet
     } else {
@@ -85,7 +85,7 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
     }
 
     this.lessonContainer.childNodes.forEach((elem) => {
-      let htmlElem = elem as HTMLElement;
+      const htmlElem = elem as HTMLElement;
       event.srcElement.scrollLeft === 0
         ? (htmlElem.style.transform = 'translate(-50%, -50%) rotate(90deg)')
         : (htmlElem.style.transform =
@@ -97,10 +97,12 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
 
 
   @HostListener('window:orientationchange', ['$event'])
-  onOrientationChange(event) {
+  onOrientationChange(event): void {
+    if (this.openLessonView) { return; }
+    // Reload the page (This ensures the onInit function is called, which ensures the proper scroll method is executed in the EventListener)
     this.router.navigateByUrl('/BibleStudyComponent', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/bible-study']);
-  }); 
+  });
   }
 
   onLoad(): void {
