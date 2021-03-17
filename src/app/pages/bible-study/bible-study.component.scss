@@ -96,6 +96,7 @@
         background: $appBronze;
         font-size: 1rem;
         color: floralwhite;
+        padding: .3em;
         @include set-text-shadow($appCrimson);
 
         border: goldenrod;
@@ -473,7 +474,7 @@
       }
 
       .past-lessons-container {
-        background-image: url("../../../assets/lamp-4.png");
+        background-image: url("../../../assets/lamp-4.5.png");
         height: 80vh;
         background-attachment: unset;
         background-size: cover;
@@ -516,8 +517,9 @@
 
 
               .lesson {
-                width: 170px;
-                height: 170px;
+                width: 140px;
+                height: 140px;
+                font-size: .8rem;
                 margin: 0px;
                 
                 /*WHEEL SCROLL CODE *************************/
