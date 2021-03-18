@@ -38,6 +38,7 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
 
   lessonContainer: HTMLElement;
   viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+  lastLeftScrollPos = 0;
 
   constructor(private domSanitizer: DomSanitizer, private router: Router) {}
 
@@ -73,9 +74,19 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
   };
 
   wheelScroll = (event: any): void => {
-    if (event.srcElement.scrollLeft === 0) {
+    console.log('############### Event: ', event.srcElement.scrollLeft, '----' , event.srcElement.scrollTop );
+    if (event.srcElement.scrollLeft !== 0 ) { this.lastLeftScrollPos = event.srcElement.scrollLeft; }
+
+    if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop === 0) {
       this.lessonContainer.style.transform = 'translateX(0%) rotate(270deg)'; // Set initial wheel position to the worksheet
-    } else {
+    } else if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop !== 0) { // maintains wheel position while up/down scroll
+      this.lessonContainer.style.transform = 
+        'translateX(' +
+        this.lastLeftScrollPos * 0.25 +
+        '%) rotate(' +
+        this.lastLeftScrollPos * 0.4 +
+        'deg)';
+    } else { 
       this.lessonContainer.style.transform =
         'translateX(' +
         event.srcElement.scrollLeft * 0.25 +
@@ -86,12 +97,21 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
 
     this.lessonContainer.childNodes.forEach((elem) => {
       const htmlElem = elem as HTMLElement;
-      event.srcElement.scrollLeft === 0
-        ? (htmlElem.style.transform = 'translate(-50%, -50%) rotate(90deg)')
-        : (htmlElem.style.transform =
-            'translate(-50%, -50%) rotate(' +
-            -1.0 * (event.srcElement.scrollLeft * 0.4) +
-            'deg)'); // keeps the child elements from rotating upside down by spining them in the opposite direction of parent element
+      if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop === 0) {
+        (htmlElem.style.transform = 'translate(-50%, -50%) rotate(90deg)');
+      } else if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop !== 0) { // maintains wheel position while up/down scroll
+        (htmlElem.style.transform =
+          'translate(-50%, -50%) rotate(' +
+          -1.0 * (this.lastLeftScrollPos * 0.4) +
+          'deg)'
+          ); 
+      } else {
+        (htmlElem.style.transform =
+              'translate(-50%, -50%) rotate(' +
+              -1.0 * (event.srcElement.scrollLeft * 0.4) +
+              'deg)'
+              ); // keeps the child elements from rotating upside down by spining them in the opposite direction of parent element
+      }
     });
   };
 
@@ -149,7 +169,7 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
         this.getWheelCenterX() + this.getLessonCoordinatesX(radians * i, 450);
       let yCoord =
         this.getWheelCenterY() - this.getLessonCoordinatesY(radians * i, 450);
-      // console.log('######## lesson', i, 'coord:', xCoord + ',' + yCoord);
+      console.log('######## lesson', i, 'coord:', xCoord + ',' + yCoord);
       div.style.left = xCoord.toString() + 'px';
       div.style.top = yCoord.toString() + 'px';
     }
