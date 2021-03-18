@@ -27,7 +27,7 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
   But it does not end there, God calls those whom He has redeemed to live, in a still darkened and rebellious world,
   as a light to point others to this gracious gift of salvation.
   God call us to spread the good news just as a sower spreads seed upon his field, far and wide with reckless abandon,
-  trusting that God will bring good fruit from the gospel. Join us as we delve into the parable of the Sower and the Soils,
+  trusting that He will bring good fruit. Join us as we delve into the parable of the Sower and the Soils,
   where we learn from Jesus about the different types of ways people can respond to the message of the gospel.`;
 
   zoomLink = 'https://us02web.zoom.us/j/2535558117';
