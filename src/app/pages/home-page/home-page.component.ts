@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CurrentLessonTheme } from 'src/app/interfaces/bible-study.interface';
 import { VerseService } from 'src/app/services/verseService';
-import { SlideUpAnimation} from 'src/app/shared/shared/animations'
+import { SlideUpAnimation} from 'src/app/shared/animations';
+import * as CurrentLessonData from 'src/app/shared/curr-lesson-data.json';
+
 
 @Component({
   selector: 'home-page',
@@ -10,11 +13,7 @@ import { SlideUpAnimation} from 'src/app/shared/shared/animations'
   animations:[SlideUpAnimation]
 })
 export class HomePageComponent implements OnInit {
-
-  christConnection = `     Jesus is the Sower who scattered the seed (God’s Word)
-  through his ministry on earth. Today, He continues to proclaim the gospel through his disciples,
-  and the gospel continues to bear fruit among those who receive the message.`
-  refPassage = '(Mark 4:1-9, 14-20)';
+  currentLesson: CurrentLessonTheme = (CurrentLessonData as any).default;
 
   constructor(private verseService: VerseService, private router: Router) { }
 

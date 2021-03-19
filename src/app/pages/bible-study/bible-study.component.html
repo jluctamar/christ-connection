@@ -3,7 +3,7 @@
         <div class="christ-connection-container">
             <div class="img-header"></div>
             <div class="christ-connection" @shutterOut>
-                <p class="CC-content"> <span class="header">Christ Connection:</span> {{christConnection}} <span class="cc-ref"> {{refPassage}} </span> </p>
+                <p class="CC-content"> <span class="header">Christ Connection:</span> {{currentLesson.christConnection}} <span class="cc-ref"> {{currentLesson.refPassage}} </span> </p>
                 <button mat-raised-button [disabled]="!activeMeeting" matTooltip="Connect With Us 6pm Tuesdays"  matTooltipPosition="right" class="connect-btn" (click)="onZoomConnect()"> Connect </button>
             </div>
             <button mat-raised-button [disabled]="!activeMeeting" matTooltip="Connect With Us 6pm Tuesdays"  matTooltipPosition="right" class="connect-btn-mobile" (click)="onZoomConnect()"> Connect </button>
@@ -14,16 +14,16 @@
             <div class="content-container">
                 
                 <div class="current-lesson"> 
-                    <div class="header">Current Lesson: {{currLessonSubject}}{{refPassage}}</div>
+                    <div class="header">Current Lesson: {{currentLesson.currLessonSubject}}{{currentLesson.refPassage}}</div>
                     <mat-divider class="horizontal-divider" ></mat-divider>
-                    <p>{{currLessonSummary}}</p>
+                    <p>{{currentLesson.currLessonSummary}}</p>
 
                 </div>
             </div>
             <mat-divider vertical="true" class="vert-divider" ></mat-divider>
             <div class="img-container">
                 <div class="current-lesson-img"></div>
-                <div class="caption">{{refPassage}}</div>
+                <div class="caption">{{currentLesson.refPassage}}</div>
             </div>
 
         </div>
@@ -48,7 +48,14 @@
             <div class="horizontal-scroll-wrapper">
                 <div class="wheel-scroll-wrapper">
                     <div class="lesson-wrapper">
-                        <div class="lesson notes-background" (click)="onViewLesson('https://drive.google.com/file/d/1EK7bRCwMq2m4ro4OcgvE2vXxfr4i2Hjj/preview')">
+
+
+                        <div *ngFor="let lesson of prevLessonsArray" class="lesson">
+                            <div class="title">{{lesson.title}}</div>
+                            <div class="passage">{{lesson.passage}}</div>
+                        </div>
+
+                        <!-- <div class="lesson notes-background" (click)="onViewLesson('https://drive.google.com/file/d/1EK7bRCwMq2m4ro4OcgvE2vXxfr4i2Hjj/preview')">
                             <div class="title ">Lesson Note Sheet</div>
                             <div class="passage">CLick Me!</div>
                         </div>
@@ -121,8 +128,8 @@
                         
                         <div class="lesson lesson-background-exodus-series" (click)="onViewLesson('https://drive.google.com/file/d/1AB3fs43F9fdYAXQvbUZUTqgwNgwbyE7W/preview')">
                             <div class="title"> Idol worshipers distort true worship </div>
-                            <div class="passage">Exodus 32:1-6</div>
-                        </div> 
+                            <div class="passage">Exodus 32:1-6</div> 
+                        </div> -->
                     </div>
 
                 </div>

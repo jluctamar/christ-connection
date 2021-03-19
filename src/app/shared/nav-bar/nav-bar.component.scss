@@ -1,4 +1,4 @@
-@import "../../../../theme.scss";
+@import "../../../theme.scss";
 
 ::ng-deep .mat-list-item-ripple,
 ::ng-deep .mat-button-ripple {
@@ -24,7 +24,7 @@
       justify-content: center;
       align-items: center;
       .img-circle {
-        background-image: url("../../../../assets/FSBCWhitePlains.jpg");
+        background-image: url("../../../assets/FSBCWhitePlains.jpg");
         background-size: cover;
         border: goldenrod;
         border-radius: 100px;

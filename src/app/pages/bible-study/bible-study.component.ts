@@ -1,12 +1,15 @@
-import { leadingComment } from '@angular/compiler';
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import {
   DomSanitizer,
-  SafeResourceUrl,
-  SafeUrl,
+
+  SafeUrl
 } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { ShutterOutAnimation } from 'src/app/shared/shared/animations';
+import { ShutterOutAnimation } from 'src/app/shared/animations'; 
+import * as CurrentLessonData from 'src/app/shared/curr-lesson-data.json';
+import * as PreviousLessonsData from 'src/app/shared/prev-lessons-repo.json';
+import { CurrentLessonTheme, Lesson } from 'src/app/interfaces/bible-study.interface';
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'bible-study',
@@ -15,22 +18,9 @@ import { ShutterOutAnimation } from 'src/app/shared/shared/animations';
   animations: [ShutterOutAnimation],
 })
 export class BibleStudyComponent implements OnInit, OnDestroy {
-  christConnection = `    Jesus is the Sower who scattered the seed (God’s Word)
-  through his ministry on earth. Today, He continues to proclaim the gospel through his disciples,
-  and the gospel continues to bear fruit among those who receive the message.`;
-
-  refPassage = '(Mark 4:1-9, 14-20)';
-  currLessonSubject = 'The Sower and the Soils';
-  currLessonSummary = `The good news of the Gospel of Jesus Christ is the preemptive love of God (1 John 4:10)
-  to pay the price of our sins by offering his son’s life as the perfect payment on our behalf.
-  Those who accept this truth walk in the blessed assurance that they have been made right with God.
-  But it does not end there, God calls those whom He has redeemed to live, in a still darkened and rebellious world,
-  as a light to point others to this gracious gift of salvation.
-  God call us to spread the good news just as a sower spreads seed upon his field, far and wide with reckless abandon,
-  trusting that He will bring good fruit. Join us as we delve into the parable of the Sower and the Soils,
-  where we learn from Jesus about the different types of ways people can respond to the message of the gospel.`;
-
   zoomLink = 'https://us02web.zoom.us/j/2535558117';
+  currentLesson: CurrentLessonTheme = (CurrentLessonData as any).default;
+  prevLessonsArray: Lesson[]  = (PreviousLessonsData as any).default;
 
   activeMeeting = false;
   openLessonView = false;
@@ -43,6 +33,8 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
   constructor(private domSanitizer: DomSanitizer, private router: Router) {}
 
   ngOnInit(): void {
+    console.log('############################', this.prevLessonsArray);
+    
     // Todo: Disable the zoom connect buttons on the basis of the designated meeting date and time
     // meaning the buttons will be enabled for the two hour time slots on the given meeting day
 
@@ -74,8 +66,7 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
   };
 
   wheelScroll = (event: any): void => {
-    console.log('############### Event: ', event.srcElement.scrollLeft, '----' , event.srcElement.scrollTop );
-    if (event.srcElement.scrollLeft !== 0 ) { this.lastLeftScrollPos = event.srcElement.scrollLeft; }
+    if (event.srcElement.scrollLeft !== 0 ) { this.lastLeftScrollPos = event.srcElement.scrollLeft; } // keeps track of last left position
 
     if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop === 0) {
       this.lessonContainer.style.transform = 'translateX(0%) rotate(270deg)'; // Set initial wheel position to the worksheet
@@ -127,12 +118,6 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
 
   onLoad(): void {
     this.lessonContainer = document.querySelector('.lesson-wrapper');
-    // console.log('########', this.lessonContainer.childNodes);
-    // console.log('########==>', window.getComputedStyle(this.lessonContainer).width);
-    // console.log('########=>', this.lessonContainer.clientWidth);
-    // console.log('########=>', this.lessonContainer.offsetWidth);
-    // console.log('######## Center X', this.getWheelCenterX());
-    // console.log('######## Center Y', this.getWheelCenterY());
     this.positionDiv();
   }
 
@@ -163,16 +148,16 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
     let theta = 360 / this.lessonContainer.childNodes.length;
     let radians = theta * (pi / 180);
 
-    for (let i = 0; i < this.lessonContainer.childNodes.length; i++) {
-      let div = this.lessonContainer.childNodes[i] as HTMLElement;
-      let xCoord =
-        this.getWheelCenterX() + this.getLessonCoordinatesX(radians * i, 450);
-      let yCoord =
-        this.getWheelCenterY() - this.getLessonCoordinatesY(radians * i, 450);
-      console.log('######## lesson', i, 'coord:', xCoord + ',' + yCoord);
-      div.style.left = xCoord.toString() + 'px';
-      div.style.top = yCoord.toString() + 'px';
-    }
+    // for (let i = 0; i < this.lessonContainer.childNodes.length; i++) {
+    //   let div = this.lessonContainer.childNodes[i] as HTMLElement;
+    //   let xCoord =
+    //     this.getWheelCenterX() + this.getLessonCoordinatesX(radians * i, 450);
+    //   let yCoord =
+    //     this.getWheelCenterY() - this.getLessonCoordinatesY(radians * i, 450);
+    //   console.log('######## lesson', i, 'coord:', xCoord + ',' + yCoord);
+    //   div.style.left = xCoord.toString() + 'px';
+    //   div.style.top = yCoord.toString() + 'px';
+    // }
   }
 
   onZoomConnect(): void {

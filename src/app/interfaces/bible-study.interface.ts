@@ -1,4 +1,4 @@
-export interface lesson {
+export interface Lesson {
     id: string,
     title: string,
     passage: string,
@@ -6,7 +6,7 @@ export interface lesson {
     class: string
 }
 
-export interface currentLessonTheme {
+export interface CurrentLessonTheme {
     refPassage: string,
     currLessonSubject: string,
     christConnection: string,

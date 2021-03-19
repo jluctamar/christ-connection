@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SlideInOutAnimation, SlideUpDownAnimation } from './shared/shared/animations';
+import { SlideInOutAnimation, SlideUpDownAnimation } from './shared/animations';
 
 @Component({
   selector: 'app-root',

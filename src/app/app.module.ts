@@ -5,9 +5,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VerseService } from './services/verseService';
-import { SharedModule } from './shared/shared/shared.module';
-import { NavBarComponent } from './shared/shared/nav-bar/nav-bar.component';
-import { FooterComponent } from './shared/shared/footer/footer.component';
+import { SharedModule } from './shared/shared.module';
+import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 import { PagesModule } from './pages/pages.module';
 
 

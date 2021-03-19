@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatListModule} from '@angular/material/list'; 
 import { VerseService } from 'src/app/services/verseService';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -24,6 +25,7 @@ import { VerseService } from 'src/app/services/verseService';
 @NgModule({
   declarations: [],
   imports: [
+    BrowserModule,
     CommonModule,
     FormsModule,
     MatToolbarModule,
