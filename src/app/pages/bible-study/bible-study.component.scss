@@ -284,7 +284,7 @@
 
     .horizontal-scroll-wrapper {
       position: sticky;
-      top: 245px;
+      top: 32%;
       width: 100%;
       overflow: hidden;
 
@@ -715,10 +715,14 @@
         background-attachment: unset;
         background-position: top;
         .horizontal-scroll-wrapper {
-          top: 250px;
+          top: 35%;
           overflow-x: auto;
           .lesson-wrapper {
             transform: none !important; // removes horizontal scroll effect
+            .lesson {
+              width: 250px;
+              height: 250px;
+            }
           }
         }
       }

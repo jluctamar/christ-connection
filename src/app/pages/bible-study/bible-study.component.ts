@@ -1,15 +1,14 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import {
   DomSanitizer,
 
   SafeUrl
 } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { ShutterOutAnimation } from 'src/app/shared/animations'; 
+import { CurrentLessonTheme, Lesson } from 'src/app/interfaces/bible-study.interface';
+import { ShutterOutAnimation } from 'src/app/shared/animations';
 import * as CurrentLessonData from 'src/app/shared/curr-lesson-data.json';
 import * as PreviousLessonsData from 'src/app/shared/prev-lessons-repo.json';
-import { CurrentLessonTheme, Lesson } from 'src/app/interfaces/bible-study.interface';
-import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'bible-study',
@@ -17,7 +16,7 @@ import { ClassGetter } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./bible-study.component.scss'],
   animations: [ShutterOutAnimation],
 })
-export class BibleStudyComponent implements OnInit, OnDestroy {
+export class BibleStudyComponent implements OnInit, OnDestroy, AfterViewInit {
   zoomLink = 'https://us02web.zoom.us/j/2535558117';
   currentLesson: CurrentLessonTheme = (CurrentLessonData as any).default;
   prevLessonsArray: Lesson[]  = (PreviousLessonsData as any).default;
@@ -27,14 +26,13 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
   lessonURL: SafeUrl;
 
   lessonContainer: HTMLElement;
+  lessonElements: HTMLElement[] = [];
   viewportWidth = window.innerWidth || document.documentElement.clientWidth;
   lastLeftScrollPos = 0;
 
   constructor(private domSanitizer: DomSanitizer, private router: Router) {}
 
-  ngOnInit(): void {
-    console.log('############################', this.prevLessonsArray);
-    
+  ngOnInit(): void {    
     // Todo: Disable the zoom connect buttons on the basis of the designated meeting date and time
     // meaning the buttons will be enabled for the two hour time slots on the given meeting day
 
@@ -42,10 +40,16 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
     (this.viewportWidth < 768 && this.isPortrait() ? this.wheelScroll : this.scroll) , true); // third parameter
     
     this.activeMeeting = this.activeMeetingCheck();
-    this.onLoad(); //Set up for wheel scroll
+  }
+  ngAfterViewInit():void { 
+    this.lessonContainer = document.querySelector('.lesson-wrapper');
+    document.querySelectorAll('.lesson').forEach( elem => this.lessonElements.push(elem as HTMLElement))
+    this.positionDiv();
+
   }
 
-  scroll = (event: any): void => {
+
+  scroll = (event: any): void => { 
     // Here scroll is a variable holding the anonymous function
     // this allows scroll to be assigned to the event during onInit
     // and removed onDestroy
@@ -86,7 +90,7 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
         'deg)';
     }
 
-    this.lessonContainer.childNodes.forEach((elem) => {
+    this.lessonElements.forEach((elem) => {
       const htmlElem = elem as HTMLElement;
       if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop === 0) {
         (htmlElem.style.transform = 'translate(-50%, -50%) rotate(90deg)');
@@ -116,11 +120,6 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
   });
   }
 
-  onLoad(): void {
-    this.lessonContainer = document.querySelector('.lesson-wrapper');
-    this.positionDiv();
-  }
-
   isPortrait(): boolean {
     return (window.innerHeight || document.documentElement.clientHeight) > (window.innerWidth || document.documentElement.clientWidth)
   }
@@ -143,21 +142,21 @@ export class BibleStudyComponent implements OnInit, OnDestroy {
     return Math.sin(theta) * radius;
   }
 
-  positionDiv(): void {
+  positionDiv(): void {    
     let pi = Math.PI;
-    let theta = 360 / this.lessonContainer.childNodes.length;
+    let theta = 360 / this.prevLessonsArray.length;
     let radians = theta * (pi / 180);
 
-    // for (let i = 0; i < this.lessonContainer.childNodes.length; i++) {
-    //   let div = this.lessonContainer.childNodes[i] as HTMLElement;
-    //   let xCoord =
-    //     this.getWheelCenterX() + this.getLessonCoordinatesX(radians * i, 450);
-    //   let yCoord =
-    //     this.getWheelCenterY() - this.getLessonCoordinatesY(radians * i, 450);
-    //   console.log('######## lesson', i, 'coord:', xCoord + ',' + yCoord);
-    //   div.style.left = xCoord.toString() + 'px';
-    //   div.style.top = yCoord.toString() + 'px';
-    // }
+    for (let i = 0; i < this.prevLessonsArray.length; i++) {
+      let div = this.lessonElements[i] as HTMLElement;
+      let xCoord =
+        this.getWheelCenterX() + this.getLessonCoordinatesX(radians * i, 450);
+      let yCoord =
+        this.getWheelCenterY() - this.getLessonCoordinatesY(radians * i, 450);
+      // console.log('######## lesson', i, 'coord:', xCoord + ',' + yCoord);
+      div.style.left = xCoord.toString() + 'px';
+      div.style.top = yCoord.toString() + 'px';
+    }
   }
 
   onZoomConnect(): void {
