@@ -36,10 +36,10 @@ export class BibleStudyComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit(): void {    
     // Todo: Disable the zoom connect buttons on the basis of the designated meeting date and time
     // meaning the buttons will be enabled for the two hour time slots on the given meeting day
-    console.group('################## onInit scroll ternary', ((this.viewportWidth < 768 && this.isPortrait)))
-    console.log('###### viewport under 768?: ', this.viewportWidth < 768);
-    console.log('###### is portrait?', this.isPortrait);
-    console.groupEnd()
+    // console.group('################## onInit scroll ternary', ((this.viewportWidth < 768 && this.isPortrait)))
+    // console.log('###### viewport under 768?: ', this.viewportWidth < 768);
+    // console.log('###### is portrait?', this.isPortrait);
+    // console.groupEnd()
 
    
     window.addEventListener('scroll', 
@@ -51,9 +51,6 @@ export class BibleStudyComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit():void { 
 
-    // this.isPortrait =  window.matchMedia("(orientation: portrait)").matches; // set the value initially
-
-
     this.lessonContainer = document.querySelector('.lesson-wrapper');
     document.querySelectorAll('.lesson').forEach( elem => this.lessonElements.push(elem as HTMLElement))
     this.positionDiv();
@@ -61,8 +58,29 @@ export class BibleStudyComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
 
+  @HostListener('window:orientationchange', ['$event'])
+  onOrientationChange(event): void {
+    if (this.openLessonView) { return; }
+    this.isPortrait = event.target.screen.orientation.type.includes('portrait');
+
+    window.removeEventListener('scroll', this.wheelScroll, true);
+    window.removeEventListener('scroll', this.scroll, true);
+
+
+    window.addEventListener('scroll', 
+    (this.viewportWidth < 768 && this.isPortrait ? this.wheelScroll : this.scroll) , true); // third parameter
+
+  }
+
+
   scroll = (event: any): void => { 
-    console.log('############################ Should work Landscape');
+    // reset the previous lesson elemets position to right side up
+    this.lessonContainer.style.transform = 'rotate(0deg)';
+    this.lessonElements.forEach((elem) => {
+      const htmlElem = elem as HTMLElement;
+      htmlElem.style.transform = 'rotate(0deg)';
+
+    });
     
     // Here scroll is a variable holding the anonymous function
     // this allows scroll to be assigned to the event during onInit
@@ -84,73 +102,48 @@ export class BibleStudyComponent implements OnInit, OnDestroy, AfterViewInit {
   };
 
   wheelScroll = (event: any): void => {
-    console.log('#################### MAIN FUNCTION is Portrait', this.isPortrait );
-    
-    if(this.isPortrait) {
+    if (event.srcElement.scrollLeft !== 0 ) { this.lastLeftScrollPos = event.srcElement.scrollLeft; } // keeps track of last left position
 
-      if (event.srcElement.scrollLeft !== 0 ) { this.lastLeftScrollPos = event.srcElement.scrollLeft; } // keeps track of last left position
-  
-      if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop === 0) {
-        this.lessonContainer.style.transform = 'translateX(0%) rotate(270deg)'; // Set initial wheel position to the worksheet
-      } else if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop !== 0) { // maintains wheel position while up/down scroll
-        this.lessonContainer.style.transform = 
-          'translateX(' +
-          this.lastLeftScrollPos * 0.25 +
-          '%) rotate(' +
-          this.lastLeftScrollPos * 0.4 +
-          'deg)';
-      } else { 
-        this.lessonContainer.style.transform =
-          'translateX(' +
-          event.srcElement.scrollLeft * 0.25 +
-          '%) rotate(' +
-          event.srcElement.scrollLeft * 0.4 +
-          'deg)';
-      }
-  
-      
-      this.lessonElements.forEach((elem) => {
-        const htmlElem = elem as HTMLElement;
-        if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop === 0) {
-          (htmlElem.style.transform = 'translate(-50%, -50%) rotate(90deg)');
-        } else if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop !== 0) { // maintains wheel position while up/down scroll
-          (htmlElem.style.transform =
-            'translate(-50%, -50%) rotate(' +
-            -1.0 * (this.lastLeftScrollPos * 0.4) +
-            'deg)'
-            ); 
-        } else {
-          (htmlElem.style.transform =
-                'translate(-50%, -50%) rotate(' +
-                -1.0 * (event.srcElement.scrollLeft * 0.4) +
-                'deg)'
-                ); // keeps the child elements from rotating upside down by spining them in the opposite direction of parent element
-        }
-      });
-
+    if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop === 0) {
+      this.lessonContainer.style.transform = 'translateX(0%) rotate(270deg)'; // Set initial wheel position to the worksheet
+    } else if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop !== 0) { // maintains wheel position while up/down scroll
+      this.lessonContainer.style.transform = 
+        'translateX(' +
+        this.lastLeftScrollPos * 0.25 +
+        '%) rotate(' +
+        this.lastLeftScrollPos * 0.4 +
+        'deg)';
+    } else { 
+      this.lessonContainer.style.transform =
+        'translateX(' +
+        event.srcElement.scrollLeft * 0.25 +
+        '%) rotate(' +
+        event.srcElement.scrollLeft * 0.4 +
+        'deg)';
     }
-  };
 
-
-  @HostListener('window:orientationchange', ['$event'])
-  onOrientationChange(event): void {
-    if (this.openLessonView) { return; }
-    console.log('################', event.target.screen.orientation.type)
-    this.isPortrait = event.target.screen.orientation.type.includes('portrait');
-    console.log('################## onChnage', this.isPortrait);
-
-
-    console.log('#######*#*#*#*#*#*# PAGE REFRESH #*#*#*#*#*#*#*##########');
     
-    // Reload the page (This ensures the onInit function is called, which ensures the proper scroll method is executed in the EventListener)
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/bible-study']);
-  });
-  }
+    this.lessonElements.forEach((elem) => {
+      const htmlElem = elem as HTMLElement;
+      if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop === 0) {
+        (htmlElem.style.transform = 'translate(-50%, -50%) rotate(90deg)');
+      } else if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop !== 0) { // maintains wheel position while up/down scroll
+        (htmlElem.style.transform =
+          'translate(-50%, -50%) rotate(' +
+          -1.0 * (this.lastLeftScrollPos * 0.4) +
+          'deg)'
+          ); 
+      } else {
+        (htmlElem.style.transform =
+              'translate(-50%, -50%) rotate(' +
+              -1.0 * (event.srcElement.scrollLeft * 0.4) +
+              'deg)'
+              ); // keeps the child elements from rotating upside down by spining them in the opposite direction of parent element
+      }
+    });
 
-  // isPortrait(): boolean {
-  //   return (window.innerHeight || document.documentElement.clientHeight) > (window.innerWidth || document.documentElement.clientWidth)
-  // }
+    
+  };
 
   getWheelCenterX(): number {
     return (
