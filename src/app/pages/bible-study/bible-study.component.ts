@@ -29,7 +29,9 @@ export class BibleStudyComponent implements OnInit, OnDestroy, AfterViewInit {
   lessonElements: HTMLElement[] = [];
   viewportWidth = window.innerWidth || document.documentElement.clientWidth;
   lastLeftScrollPos = 0;
-  isPortrait: boolean = window.matchMedia("(orientation: portrait)").matches ; // THIS DOESN'T UPDATE WHEN THE PAGE RELOADS
+  isPortrait: boolean;
+  orientationValue: string | number = '';
+
 
   constructor(private domSanitizer: DomSanitizer, private router: Router) {}
 
@@ -40,7 +42,7 @@ export class BibleStudyComponent implements OnInit, OnDestroy, AfterViewInit {
     // console.log('###### viewport under 768?: ', this.viewportWidth < 768);
     // console.log('###### is portrait?', this.isPortrait);
     // console.groupEnd()
-
+    this.isPortrait = window.matchMedia("(orientation: portrait)").matches ; 
    
     window.addEventListener('scroll', 
     (this.viewportWidth < 768 && this.isPortrait ? this.wheelScroll : this.scroll) , true); // third parameter
@@ -60,16 +62,15 @@ export class BibleStudyComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @HostListener('window:orientationchange', ['$event'])
   onOrientationChange(event): void {
+    this.orientationValue = window.orientation;
     if (this.openLessonView) { return; }
-    this.isPortrait = event.target.screen.orientation.type.includes('portrait');
-
+    this.isPortrait = window.orientation === 0;
     window.removeEventListener('scroll', this.wheelScroll, true);
     window.removeEventListener('scroll', this.scroll, true);
-
-
+    
+    
     window.addEventListener('scroll', 
-    (this.viewportWidth < 768 && this.isPortrait ? this.wheelScroll : this.scroll) , true); // third parameter
-
+    (this.viewportWidth < 768 && this.isPortrait ? this.wheelScroll : this.scroll) , true); // third parameter    
   }
 
 
@@ -79,7 +80,6 @@ export class BibleStudyComponent implements OnInit, OnDestroy, AfterViewInit {
     this.lessonElements.forEach((elem) => {
       const htmlElem = elem as HTMLElement;
       htmlElem.style.transform = 'rotate(0deg)';
-
     });
     
     // Here scroll is a variable holding the anonymous function
@@ -102,45 +102,50 @@ export class BibleStudyComponent implements OnInit, OnDestroy, AfterViewInit {
   };
 
   wheelScroll = (event: any): void => {
-    if (event.srcElement.scrollLeft !== 0 ) { this.lastLeftScrollPos = event.srcElement.scrollLeft; } // keeps track of last left position
 
-    if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop === 0) {
-      this.lessonContainer.style.transform = 'translateX(0%) rotate(270deg)'; // Set initial wheel position to the worksheet
-    } else if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop !== 0) { // maintains wheel position while up/down scroll
-      this.lessonContainer.style.transform = 
-        'translateX(' +
-        this.lastLeftScrollPos * 0.25 +
-        '%) rotate(' +
-        this.lastLeftScrollPos * 0.4 +
-        'deg)';
-    } else { 
-      this.lessonContainer.style.transform =
-        'translateX(' +
-        event.srcElement.scrollLeft * 0.25 +
-        '%) rotate(' +
-        event.srcElement.scrollLeft * 0.4 +
-        'deg)';
-    }
-
-    
-    this.lessonElements.forEach((elem) => {
-      const htmlElem = elem as HTMLElement;
+    if(this.isPortrait) {
+      
+      if (event.srcElement.scrollLeft !== 0 ) { this.lastLeftScrollPos = event.srcElement.scrollLeft; } // keeps track of last left position
+  
       if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop === 0) {
-        (htmlElem.style.transform = 'translate(-50%, -50%) rotate(90deg)');
+        this.lessonContainer.style.transform = 'translateX(0%) rotate(270deg)'; // Set initial wheel position to the worksheet
       } else if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop !== 0) { // maintains wheel position while up/down scroll
-        (htmlElem.style.transform =
-          'translate(-50%, -50%) rotate(' +
-          -1.0 * (this.lastLeftScrollPos * 0.4) +
-          'deg)'
-          ); 
-      } else {
-        (htmlElem.style.transform =
-              'translate(-50%, -50%) rotate(' +
-              -1.0 * (event.srcElement.scrollLeft * 0.4) +
-              'deg)'
-              ); // keeps the child elements from rotating upside down by spining them in the opposite direction of parent element
+        this.lessonContainer.style.transform = 
+          'translateX(' +
+          this.lastLeftScrollPos * 0.25 +
+          '%) rotate(' +
+          this.lastLeftScrollPos * 0.4 +
+          'deg)';
+      } else { 
+        this.lessonContainer.style.transform =
+          'translateX(' +
+          event.srcElement.scrollLeft * 0.25 +
+          '%) rotate(' +
+          event.srcElement.scrollLeft * 0.4 +
+          'deg)';
       }
-    });
+  
+      
+      this.lessonElements.forEach((elem) => {
+        const htmlElem = elem as HTMLElement;
+        if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop === 0) {
+          (htmlElem.style.transform = 'translate(-50%, -50%) rotate(90deg)');
+        } else if (event.srcElement.scrollLeft === 0 && event.srcElement.scrollTop !== 0) { // maintains wheel position while up/down scroll
+          (htmlElem.style.transform =
+            'translate(-50%, -50%) rotate(' +
+            -1.0 * (this.lastLeftScrollPos * 0.4) +
+            'deg)'
+            ); 
+        } else {
+          (htmlElem.style.transform =
+                'translate(-50%, -50%) rotate(' +
+                -1.0 * (event.srcElement.scrollLeft * 0.4) +
+                'deg)'
+                ); // keeps the child elements from rotating upside down by spining them in the opposite direction of parent element
+        }
+      });
+
+    }
 
     
   };
