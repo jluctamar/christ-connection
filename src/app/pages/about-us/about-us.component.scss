@@ -93,26 +93,27 @@
             height: 200px;
           }
           &.card-one {
+            
             .img {
-              background-image: url("../../../assets/Rachelle3.jpg");
+              background-image: url("../../../assets/defualt-female-avatar.png");
               background-size: cover;
             }
           }
           &.card-two {
             .img {
-              background-image: url("../../../assets/christie.jpg");
+              background-image: url("../../../assets/defualt-female-avatar.png");
               background-size: cover;
             }
           }
           &.card-three {
             .img {
-              background-image: url("../../../assets/Christine.jpg");
+              background-image: url("../../../assets/defualt-female-avatar.png");
               background-size: cover;
             }
           }
           &.card-four {
             .img {
-              background-image: url("../../../assets/jeffly1.jpg");
+              background-image: url("../../../assets/defualt-male-avatar.png");
               background-size: cover;
             }
           }
@@ -130,6 +131,8 @@
           }
           .mat-card-content {
             margin: 16px;
+            align-self: center;
+
           }
         }
       }
@@ -138,11 +141,13 @@
     .church-info {
       display: flex;
       flex-direction: column;
+      margin-left: 64px;
+      margin-right: 64px;
 
       .content {
         display: flex;
         width: 100%;
-        justify-content: space-evenly;
+        justify-content: space-between;
         font-size: 1rem;
         font-weight: 500;
 
