@@ -67,6 +67,7 @@
       }
       .mat-list-option {
         text-decoration: none;
+        user-select: none;
         transition: 150ms;
         width: fit-content;
         &:hover {
@@ -75,7 +76,12 @@
           text-decoration-color: gold;
           text-decoration-thickness: 3px;
           text-underline-offset: 3px;
-          transform: scale(2);
+          transform: scale(1.5);
+        }
+        &:active { 
+          transform: scale(1.2);
+          transition: 150ms;
+
         }
 
         &.mat-list-item-disabled {

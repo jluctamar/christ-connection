@@ -9,10 +9,10 @@
             
 
             <mat-selection-list #navLinks class="selector-wrapper" [multiple]="false">
-                <mat-list-option class="navStyles" (click)="goToHome()"> Home </mat-list-option>
-                <mat-list-option class="navStyles" (click)= "goToBibleStudy()"> Bible Study</mat-list-option>
-                <mat-list-option class="navStyles" (click)= "goToAboutUs()"> About Us </mat-list-option>
-                <mat-list-option class="navStyles" [disabled]="!activeMeeting" (click)= "onZoomConnect()"> Connect </mat-list-option>
+                <mat-list-option class="navStyles" (click)="goToHome()" disableRipple > Home </mat-list-option>
+                <mat-list-option class="navStyles" (click)= "goToBibleStudy()" disableRipple > Bible Study</mat-list-option>
+                <mat-list-option class="navStyles" (click)= "goToAboutUs()" disableRipple > About Us </mat-list-option>
+                <mat-list-option class="navStyles" [disabled]="!activeMeeting" (click)= "onZoomConnect()" disableRipple > Connect </mat-list-option>
                 <!-- <a class="navStyles" (click)= "goToFellowship()"> Fellowship </a> -->           
                 <!-- <a class="navStyles" (click)= "goToPrayerNight()"> Prayer Night</a> -->
             </mat-selection-list>
