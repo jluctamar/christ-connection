@@ -1,4 +1,5 @@
 @import "../theme.scss";
+@import "../styles.scss";
 
 .wrapper {
   min-height: 100%;
@@ -11,7 +12,7 @@
     flex-direction: column;
 
     nav-bar {
-      height: 15vh;
+      height: $nav-bar-height;
     }
 
     ::ng-deep about-us,
@@ -19,7 +20,7 @@
     ::ng-deep bible-study,
     ::ng-deep fellowship-page,
     ::ng-deep prayer-night {
-      height: 85vh;
+      height: $display-height;
     }
 
     footer {
@@ -33,19 +34,19 @@
   @media only screen and (max-width: 480px) and (orientation: portrait) {
     
     footer {
-      height: 85vh;
+      height: $display-height;
     }
   }
   @media only screen and (max-width: 767px) and (orientation: landscape) {
     
     footer {
-      height: 85vh;
+      height: $display-height;
     }
   }
 
-  @media only screen and (min-width: 768px) and (max-width: 10240px) {
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
     nav-bar {
-      height: 12vh !important;
+      height: $nav-bar-small-device-height !important;
     }
 
     ::ng-deep about-us,
@@ -53,7 +54,7 @@
     ::ng-deep bible-study,
     ::ng-deep fellowship-page,
     ::ng-deep prayer-night {
-      height: 88vh !important;
+      height: $display-small-device-height !important;
     }
   }
 

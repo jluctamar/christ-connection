@@ -1,4 +1,5 @@
 @import "../../../theme.scss";
+@import "../../../styles.scss";
 
 .wrapper {
   display: flex;
@@ -20,7 +21,7 @@
 
       .img-header {
         width: 100%;
-        height: 70vh;
+        height: $display-height;
         background: $appCrimson;
         background-image: url("../../../assets/bible-study-pic.png");
         background-repeat: no-repeat;
@@ -141,6 +142,8 @@
         background-size: cover;
         width: 100%;
         height: 90%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
       }
 
       .caption {
@@ -153,6 +156,8 @@
         font-size: 1.5rem;
         line-height: 45px;
         @include set-text-shadow(grey);
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
       }
     }
 
@@ -199,6 +204,7 @@
         p {
           font-size: 1.3rem;
           line-height: 45px;
+          text-align: center;
         }
       }
     }
@@ -390,7 +396,7 @@
         box-shadow: none;
 
         .img-header {
-          height: 80vh;
+          // height: 80vh;
           background-attachment: unset;
           box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px,
             rgb(0 0 0 / 22%) 0px 10px 10px;
@@ -401,7 +407,7 @@
           width: 95%;
           padding: 16px;
           border-radius: 32px;
-          margin-top: 5%;
+          margin-top: 50%;
 
           .CC-content {
             font-size: 1rem;

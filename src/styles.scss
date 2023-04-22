@@ -15,3 +15,9 @@ body, html {
  background-repeat: no-repeat;  
  background-size: cover;
 }
+
+/**  CSS VARIABLES  */
+$nav-bar-height : 15vh;
+$nav-bar-small-device-height : 12vh;
+$display-height : 85vh;
+$display-small-device-height : 88vh;
