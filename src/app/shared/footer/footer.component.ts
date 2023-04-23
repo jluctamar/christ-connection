@@ -21,7 +21,6 @@ export class FooterComponent implements OnInit {
   }
 
   onDisplayPassage() {
-    //this.passage = this.verseService.displayPassage();
 
     let verse = this.passageSelectionArr[Math.floor(Math.random() * this.passageSelectionArr.length)];
     this.verseService.getPassage(verse).subscribe((response) => {
@@ -31,7 +30,6 @@ export class FooterComponent implements OnInit {
       this.passage.text = JSON.stringify(response.passages).replace("[", "")
       .replace("]", "")
       .replace(/\\n/g, "");
-      console.log('##################', this.passage)
       this.test = JSON.stringify(response.passages)
         .replace("[", "")
         .replace("]", "")
