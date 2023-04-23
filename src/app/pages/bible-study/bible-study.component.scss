@@ -1,6 +1,7 @@
 @import "../../../theme.scss";
 @import "../../../styles.scss";
 
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -314,7 +315,7 @@
             border: solid goldenrod;
             box-shadow: -15px 24px 31px -20px rgba(127, 132, 145, 1);
             
-            // Set background image
+            // Set background defualt
             background: $appBronze;
             background-position: center;
             background-repeat: no-repeat;
@@ -338,36 +339,38 @@
               text-align: center;
             }
           }
-          .notes-background {
-            background-image: url("../../../assets/note-taking.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-          }
-          .lesson-background-sower {
-            background-image: url("../../../assets/sower.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-          }
-          .lesson-background-zaccheaus {
-            background-image: url("../../../assets/jesus-and-zaccheus.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-          }
-          .lesson-background-gospel-series {
-            background-image: url("../../../assets/gospel-series.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-          }
-  
-          .lesson-background-exodus-series {
-            background-image: url("../../../assets/exodus-series.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-          }
         }
       }
     }
   }
+
+  .notes-background {
+    background-image: url("../../../assets/note-taking.png") !important ;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .lesson-background-sower {
+    background-image: url("../../../assets/sower.png") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .lesson-background-zaccheaus {
+    background-image: url("../../../assets/jesus-and-zaccheus.png") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .lesson-background-gospel-series {
+    background-image: url("../../../assets/gospel-series.png") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .lesson-background-exodus-series {
+    background-image: url("../../../assets/exodus-series.png") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
 
   .resources-container {
     display: flex;

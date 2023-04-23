@@ -24,6 +24,7 @@ export class BibleStudyComponent implements OnInit, OnDestroy, AfterViewInit {
   activeMeeting = false;
   openLessonView = false;
   lessonURL: SafeUrl;
+  lessonClass: string; // for css background purposes
 
   lessonContainer: HTMLElement;
   lessonElements: HTMLElement[] = [];
@@ -36,12 +37,6 @@ export class BibleStudyComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(private domSanitizer: DomSanitizer, private router: Router) {}
 
   ngOnInit(): void {    
-    // Todo: Disable the zoom connect buttons on the basis of the designated meeting date and time
-    // meaning the buttons will be enabled for the two hour time slots on the given meeting day
-    // console.group('################## onInit scroll ternary', ((this.viewportWidth < 768 && this.isPortrait)))
-    // console.log('###### viewport under 768?: ', this.viewportWidth < 768);
-    // console.log('###### is portrait?', this.isPortrait);
-    // console.groupEnd()
     this.isPortrait = window.matchMedia("(orientation: portrait)").matches ; 
    
     window.addEventListener('scroll', 
@@ -189,11 +184,15 @@ export class BibleStudyComponent implements OnInit, OnDestroy, AfterViewInit {
     document.location.href = this.zoomLink;
   }
 
-  onViewLesson(urlLocation: string): void {
+  onViewLesson(lesson: Lesson): void {
     this.openLessonView = true;
+    this.lessonClass = lesson.class;
     this.lessonURL = this.domSanitizer.bypassSecurityTrustResourceUrl(
-      urlLocation
+      lesson.url 
     );
+
+    console.log(this.lessonClass);
+    console.log(this.lessonURL);
   }
 
   onClosePassageDisplay(): void {

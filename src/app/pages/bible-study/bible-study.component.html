@@ -35,7 +35,7 @@
             </div>
         </div>
         
-        <div class="past-lesson-summary-overlay" *ngIf="openLessonView"> 
+        <div class="past-lesson-summary-overlay" *ngIf="openLessonView" [ngClass]="lessonClass"> 
             <div class="close">
                 <button mat-fab matTooltip="Close" matTooltipPosition="right" class="closeDisplayBtn" (click)="onClosePassageDisplay()">
                     <mat-icon>close</mat-icon>
@@ -50,7 +50,7 @@
                     <div class="lesson-wrapper">
 
                         <ng-container *ngFor="let lesson of prevLessonsArray">
-                            <div [ngClass]='["lesson", lesson.class]' (click)="onViewLesson(lesson.url)">
+                            <div [ngClass]='["lesson", lesson.class]' (click)="onViewLesson(lesson)">
                                 <div class="title">{{lesson.title}}</div>
                                 <div class="passage">{{lesson.passage}}</div>
                             </div>
